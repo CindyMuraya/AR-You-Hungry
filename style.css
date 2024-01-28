@@ -7,71 +7,18 @@
     font-family: 'Chivo', sans-serif;
     }
 
-    .home {
-        width: 100%;
-        min-height: 100vh;
+    .h1{
+        font-weight: bold;
+        font-size: larger;
+    }
+
+    .home{
         background-image: url(./Images/background.jpg);
-        background-size: auto;
+        width: 100%;
+        background-size: cover;
         display: flex;
-        align-items: center;
-        justify-content: start;
+        justify-content: baseline;
         position: relative;
         color: white;
-    }
-        
-    .left {
-        width: 650px;
-        min-height: 100vh;
-        position: relative;
-    }
-
-    .left img {
-        width: 100%;
-        position: absolute;
-        left: -100px;
-    }
-
-    .right {
-        width: 750px;
-        min-height: 100vh;
-        padding: 70px 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: flex-end;
-    }
-
-    a {
-        text-decoration: none;
-        color: inherit;
-    }
-
-    .right .top {
-        width: 600px;
-        font-weight: 300;
-    }
-
-    .right .top p {
-        font-size: 48px;
-        text-align: right;
-        margin-bottom: 16px;
-    }
-
-    .right .top a {
-        display: block;
-        text-align: end;
-        font-size: 32px;
-        color: #ffc901;
-    }
-
-    .middle img {
-        width: 300px;
-    }
-
-    .bottom p {
-        font-size: 48px;
-    }
-
-    .bottom p span {
-        color: #ffc901;
+        text-transform: capitalize;
     }
