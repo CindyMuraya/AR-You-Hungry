@@ -22,10 +22,11 @@
     /*Nav Bar*/
     header{
         padding: 16px 0;
-        background-color: gold;
+        background-color: gray;
         width: 100;
         position: sticky;
         z-index: 1;
+        color: white;
         top: 0;
     }
 
