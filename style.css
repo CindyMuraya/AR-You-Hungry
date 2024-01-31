@@ -22,3 +22,26 @@
         color: white;
         text-transform: capitalize;
     }
+
+    /*Nav Bar*/
+    header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 0;
+        background-color: #000000;
+        width: 100%;
+        position: sticky;
+        z-index: 1;
+        top: 0;
+    }
+
+    nav{
+        width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+                
+    }
