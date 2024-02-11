@@ -8,20 +8,53 @@
     }
 
     .home{
-        width: 100%;
+        width: auto%;
         min-height: 100vh;
-        background-image: url(./Images/background.jpg);
+        background-image: url(./Images/Premium\ Photo\ _\ Restaurant\ blur\ background\ design\ resource.jpg);
         background-size: cover;
         display: flex;
-        justify-content: start;
+        justify-content: space-between;
         align-items: center;
         position: relative;
-        color: white;
+        padding: 0 50px;
+        color: black;
+        font-size: larger;
     }
-    
+
+    .home .content{
+        width: 50%;
+    }
+
+    .home .content h1{
+        font-size: 50px;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+
+    .home .content p{
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    .home .btn{
+        padding: 10px 25px;
+        color:blue;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 20px;
+        transition: all 0.3s ease;
+        text-decoration: underline;
+    }
+
+    .home .btn:hover{
+        color: aqua;
+    }
+        
     /*Nav Bar*/
     header{
-        padding: 16px 0;
+        padding: 1px 0;
         background-color: gray;
         width: 100;
         position: sticky;
@@ -31,19 +64,16 @@
     }
 
     nav{
-        width: 1200px;
+        width: 1500px;
         margin: auto;
         display: flex;
         justify-content: center;
         align-items: center;
-        color: white;
-        color: white;
-        font-size: 20px;
-        font-weight: 400;      
+        background-color: gray;
     }
 
     nav .logo img{
-        width: 145px;
+        width: 50px;
     }
 
     nav .logo{
@@ -52,24 +82,58 @@
 
     ul{
         display: flex;
-        align-items: center;
+        align-items: right;
     }
 
-    .link{
+    .nav-links a{
         padding: 20px;
         color: blue;
         font-size: 20px;
         font-weight: 400;
         transition: all 0.3s ease;
+        margin: 20px 20px 20px 20px;
     }
 
-    .link:hover{
-        background-color: whitesmoke;
-        border-radius: 5px;
-    }
+    .nav-links a:hover{
+        color: aqua;
+        border-radius: 10px;
 
-    .right-links{
-        margin-left: auto;
+    }
+a:hover {
+  position: relative;
+}
+
+a:hover::after {
+  position: absolute;
+  bottom: 125%;
+  left: 0;
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration:wavy;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+  a:hover::after {
+    opacity: 1;
+  }
+  
+    /*About*/
+    .about{
+        width: auto;
+        min-height: 100vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        padding: 0 50px;
+        background-size: cover;
+        color: black;
+        font-size: larger;
+        background-image: url(./Images/Pizza\ on\ black\ background\,\ banner.jpg);
     }
 
     ::-webkit-scrollbar {
