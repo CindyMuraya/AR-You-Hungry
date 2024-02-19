@@ -87,7 +87,7 @@
 
     .nav-links a{
         padding: 20px;
-        color: blue;
+        color: black;
         font-size: 20px;
         font-weight: 400;
         transition: all 0.3s ease;
@@ -99,28 +99,21 @@
         border-radius: 10px;
 
     }
-a:hover {
-  position: relative;
-}
 
-a:hover::after {
-  position: absolute;
-  bottom: 125%;
-  left: 0;
-  width: 100%;
-  padding: 8px;
-  border-radius: 5px;
-  text-align: center;
-  text-decoration:wavy;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-}
+    .nav-links a::after{
+        content: '';
+        width: 0;
+        height: 2px;
+        background-color: aqua;
+        display: block;
+        margin: auto;
+        transition: all 0.3s ease;
+    }
 
-  a:hover::after {
-    opacity: 1;
-  }
-  
+    .nav-links a:hover::after{
+        width: 100%;
+    }
+
     /*About*/
     .about{
         width: auto;
@@ -131,9 +124,51 @@ a:hover::after {
         position: relative;
         padding: 0 50px;
         background-size: cover;
-        color: black;
+        color: whitesmoke;
         font-size: larger;
-        background-image: url(./Images/Pizza\ on\ black\ background\,\ banner.jpg);
+        background-image: url(./Images/White\ plate\ cutlery\ and\ napkin\ on\ featuring\ plate\,\ black\,\ and\ table\ \(1\).jpg);
+    }
+
+    .about .content{
+        width: 50%;
+    }
+
+    .about .content h1{
+        font-size: 50px;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+
+    .about .content p{
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    /*Footer*/
+    footer{
+        width: 100%;
+        background-color: gray;
+        color: black;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+
+   
+
+    .menu .content{
+        width: 50%;
+    }
+
+    .menu .content h1{
+        font-size: 50px;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+
+    .menu .content p{
+        font-size: 20px;
+        margin-bottom: 20px;
     }
 
     ::-webkit-scrollbar {
