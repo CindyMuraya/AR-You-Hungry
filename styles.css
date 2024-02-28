@@ -26,16 +26,15 @@ body {
 
 /* Header Styles */
 header {
-  background-color: #ffffff;
   text-align: center;
   padding: 1em;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
-  font-size: 30px;
-  font-weight: bold;
+  font-size: 36px;
   color: #333333;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 /* Navigation Styles */
@@ -50,6 +49,14 @@ nav ul {
   list-style: none;
   padding: 10;
   margin: 0;
+}
+
+.left-navbar-list{
+  float: left;
+}
+
+.right-navbar-list{
+  float: right;
 }
 
 nav ul li {
@@ -72,7 +79,7 @@ nav ul li a:hover {
 
 /* Main Content Styles */
 main {
-  margin-top: 20px;
+  margin: 0 20px;
 }
 
 h1 {

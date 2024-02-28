@@ -21,14 +21,6 @@
     <!-- #HEADER -->
     <header class="header" data-header>         
         <nav class="navbar" data-navbar>
-            <div class="navbar-toggle" data-navbar-toggle>
-                <span class="navbar-toggle-icon"></span>
-            </div>
-            <div class="navbar-close" data-navbar-close>
-                <span class="navbar-close-icon"></span>
-            </div>
-            <div class="navbar-overlay" data-navbar-overlay></div>
-            
             <ul class="left-navbar-list">
                 <li class="navbar-item">
                   <a href="./index.html" class="navbar-link hover-underline active">
@@ -81,28 +73,35 @@
         </nav>
 </header>
 
-    <!-- #HERO -->
-    <section class="hero" data-hero>
-            <div class="hero-content">
-                <h1 class="hero-title">Say Goodbye to Boring Menus and Hello to a World Full of Flavor and Fun!</h1>
-                <p class="hero-text">Discover the best dining experience with our delicious menu and convenient reservation system.</p>
-                <a href="./menu.html" class="btn btn-primary">View Menu</a>
+    <!-- #MAIN -->
+    <main class="main" data-main>
+        <section class="section" data-section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h1 class="title">Login</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <form class="form" data-form>
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" id="password" class="form-control" placeholder="Enter your password" required>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Login</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-        <div class="hero-image">
-            <img src="Images/hero-image.png" alt="AR You Hungry? - Hero Image">
-        </div>
-    </section>
-
-    <!-- #ABOUT -->
-    <section class="about" data-about>
-        <div class="container">
-            <div class="about-content">
-                <h2 class="about-title">About Ar You Hungry?</h2>
-                <p class="about-text">AR You Hungry? is a restaurant that offers a unique dining experience. Our menu is filled with a variety of delicious meals that are sure to satisfy your taste buds. We also offer a convenient reservation system that allows you to book a table at the restaurant of your choice. Say goodbye to boring menus and hello to a world full of flavor and fun!</p>
-                <a href="./reservation.html" class="btn btn-secondary">Make a Reservation</a>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- #FOOTER -->
     <footer class="footer" data-footer>
@@ -120,7 +119,6 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="scripts.js"></script>
 </body>
-
 </html>
