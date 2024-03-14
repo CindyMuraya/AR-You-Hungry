@@ -1,6 +1,6 @@
 const searchicon1 = document.querySelector("#searchicon1");
-const searchicon1 = document.querySelector("#searchicon");
-const searchinput1 = document.querySelector("#searchinput1");
+const srchicon1 = document.querySelector("#srchicon1");
+const search1 = document.querySelector("#searchinput1");
 
 searchicon1.addEventListener("click", function(){
     searchinput1.style.display = 'flex';
@@ -8,8 +8,8 @@ searchicon1.addEventListener("click", function(){
 });
 
 const searchicon2 = Document.querySelector("#searchicon1");
-const searchicon2 = Document.querySelector("#searchicon");
-const searchinput2 = Document.querySelector("#searchinput1");
+const srchicon2 = Document.querySelector("#srchicon2");
+const search2 = Document.querySelector("#searchinput1");
 
 searchicon2.addEventListener("click", function(){
     searchinput2.style.display = 'flex';
@@ -18,7 +18,7 @@ searchicon2.addEventListener("click", function(){
 
 const bar = document.querySelector('.fa-bars');
 const cross = document.querySelector('#hdcross');
-const headerbar = document.querySelector('.haederbar');
+const headerbar = document.querySelector('.headerbar');
 
 bar.addEventListener('click', function(){
     setTimeout(()=>{
@@ -26,3 +26,8 @@ bar.addEventListener('click', function(){
     }, 200);
     headerbar.style.right = '0%';
 });
+
+cross.addEventListener('click', function(){
+    cross.style.display = 'none';
+    headerbar.style.right = '-100%';
+})
