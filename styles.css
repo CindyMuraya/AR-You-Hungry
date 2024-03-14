@@ -110,64 +110,6 @@ header{
   cursor: pointer;
 }
 
-@media only screen and (max-width: 768px){
-  .header .nav, .header .account{
-	display: none;
-  }
-  .search{
-	width: 60vw;
-  }
-  .bar{
-	display: block;
-	cursor: pointer;
-  }
-  .headerbar{
-	overflow: hidden;
-	display: flex;
-	flex-direction: column;
-	position: fixed;
-	top: 0;
-	bottom: 0;
-	right: -100%;
-	width: 100%;
-	background-color: blanchedalmond;
-	transition: all 0.5s;
-  }
-  .headerbar .account, .headerbar .nav{
-	display: block;
-	font-size: 20px;
-  }
-  .bar .fa-xmark{
-	display: none;
-	top: 20px;
-	right: 5vw;
-	position: absolute;
-	font-size: 25px;
-  }
-  .headerbar .nav ul{
-	flex-direction: column;
-	margin-top: 10px;
-	text-align: center;
-  }
-  .headerbar .nav li{
-	width: 96vw;
-	margin: 10px 0;
-	padding: 15px 30px;
-	box-shadow: 0 2px 15px lavenderblush;
-	font-size: 15px;
-	margin-top: 5px;
-  }
-  .headerbar .account{
-	line-height: 40px;
-	margin-top: 60px;
-	background-color: blanchedalmond;
-	padding: 15px;
-  }
-  .headerbar .account ul{
-	justify-content: space-between;
-  }
-}
-
 /* Navigation Styles */
 nav {
   margin-top: 1px;
@@ -291,8 +233,78 @@ button{
   border: 1px solid darkorange;
 }
 
+/* RESPONSIVENESS */
 @media only screen and (max-width: 768px){
-
+  .header .nav, .header .account{
+	display: none;
+  }
+  .search{
+	width: 60vw;
+  }
+  .bar{
+	display: block;
+	cursor: pointer;
+  }
+  .headerbar{
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: -100%;
+	width: 100%;
+	background-color: blanchedalmond;
+	transition: all 0.5s;
+  }
+  .headerbar .account, .headerbar .nav{
+	display: block;
+	font-size: 20px;
+  }
+  .bar .fa-xmark{
+	display: none;
+	top: 20px;
+	right: 5vw;
+	position: absolute;
+	font-size: 25px;
+  }
+  .headerbar .nav ul{
+	flex-direction: column;
+	margin-top: 10px;
+	text-align: center;
+  }
+  .headerbar .nav li{
+	width: 96vw;
+	margin: 10px 0;
+	padding: 15px 30px;
+	box-shadow: 0 2px 15px lavenderblush;
+	font-size: 15px;
+	margin-top: 5px;
+  }
+  .headerbar .account{
+	line-height: 40px;
+	margin-top: 60px;
+	background-color: blanchedalmond;
+	padding: 15px;
+  }
+  .headerbar .account ul{
+	justify-content: space-between;
+  }
+  .options{
+	flex: 1;
+	text-align: center;
+	margin-bottom: 20px;
+  }
+  .options img{
+	width: 70vw;
+  }
+  .newsletter h2{
+	font-size: 22px;
+  }
+  .newsletter input{
+	font-size: 11px;
+	padding: 15px;
+  }
 }
 
 @media only screen and (max-width: 550px){
@@ -374,6 +386,44 @@ text-underline-offset: 7px;
 .options .white_btn{
 	width: 120px;
 	line-height: 35px;
+}
+
+.newsletter{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	padding: 100px 0;
+}
+
+.newsletter h2{
+	flex: 0.5;
+	font-size: 30px;
+}
+
+.newsletter span{
+	color: firebrick;
+	font-size: larger;
+	font-weight: bold;
+}
+
+.newsletter input{
+	width: 100%;
+	margin-top: 20px;
+	display: flex;
+	flex: 0.5;
+	font-size: 15px;
+	padding: 10px;
+	outline: none;
+	border: none;
+	background-color: oldlace;
+}
+
+.newsletter button{
+	margin: 0;
+	font-size: 20px;
+	box-shadow: none;
+	border-radius: 0 10px 10px 0;
 }
 
 /* Footer Styles */
