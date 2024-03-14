@@ -11,7 +11,7 @@
 
 /* Global Styles */
 * {
-  font-family: "Satisfy", sans-serif;
+  font-family: "Satisfy", Verdana, Geneva, Tahoma, sans-serif;
   background-color: blanchedalmond;
   margin: 0;
   padding: 0;
@@ -25,7 +25,18 @@ body {
 }
 
 /* Header Styles */
-header {
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  padding: 0 7vw;
+  background-color: blanchedalmond;
+  border-bottom: 2px solid burlywood;
+  box-shadow: 0 2px 20px pink;
+}
+
+header{
   text-align: center;
   padding: 1em;
 }
@@ -35,6 +46,23 @@ header {
   color: #333333;
   text-decoration: none;
   transition: color 0.3s ease;
+}
+
+.logo img{
+  width: 250px;
+}
+
+.bar {
+  display: none;
+}
+
+.header ul{
+  display: flex;
+  align-items: center;
+}
+
+.header ul li:hover {
+  color:azure;
 }
 
 /* Navigation Styles */
@@ -51,17 +79,11 @@ nav ul {
   margin: 0;
 }
 
-.left-navbar-list{
-  float: left;
-}
-
-.right-navbar-list{
-  float: right;
-}
-
 nav ul li {
   display: inline-block;
   margin: 0 10px;
+  padding: 0 15px;
+  font-weight: bold;
 }
 
 nav ul li a {
