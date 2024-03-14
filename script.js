@@ -17,7 +17,7 @@ searchicon2.addEventListener("click", function(){
 });
 
 const bar = document.querySelector('.fa-bars');
-const cross = document.querySelector('#hdcross');
+const cross = document.querySelector('#cross');
 const headerbar = document.querySelector('.headerbar');
 
 bar.addEventListener('click', function(){

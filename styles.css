@@ -10,7 +10,7 @@
 
 /* Global Styles */
 * {
-  font-family: "Satisfy", Verdana, Geneva, Tahoma, sans-serif;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -24,57 +24,77 @@ body {
 }
 
 /* Header Styles */
-.header {
+.header{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 20px 7vw;
   height: 60px;
-  padding: 0 7vw;
-  border-bottom: 2px solid burlywood;
-  box-shadow: 0 2px 20px pink;
+  background-color: blanchedalmond;
 }
 
-header{
-  text-align: center;
-  padding: 1em;
+.header .nav, .header .account{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.logo {
-  font-size: 36px;
-  color: #333333;
-  text-decoration: none;
-  transition: color 0.3s ease;
+.header .nav ul{
+  margin: 0 10px;
+  padding: 0 15px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  transition: background-color 0.3s ease;
+}
+
+.header .nav ul li{
+  display: inline;
+  font-weight: bold;
+  list-style: none;
 }
 
 .logo img{
-  width: 250px;
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  display: flex;
+  justify-content: end;
 }
 
 .bar {
   display: none;
 }
 
-.header ul{
-  display: flex;
-  align-items: center;
-}
-
-.header ul li:hover {
-  color:azure;
-}
-
 .account{
-  flex: 0.1;
+  flex: 0.8;
 }
 
 .account ul{
   display: flex;
   justify-content: end;
+  align-items: center;
+  gap: 8px;
+  list-style: none;
 }
 
 .account ul li{
+  margin: 0 10px;
   padding: 0 15px;
   font-size: 20px;
+}
+
+.account ul li a{
+  text-decoration: none;
+  color: #333333;
+  transition: color 0.3s ease;
+}
+
+.account ul li a:hover{
+  color: coral;
 }
 
 .headerbar{
@@ -110,43 +130,21 @@ header{
 }
 
 /* Navigation Styles */
-.nav {
-  margin-top: 1px;
-  text-align: center;
-  margin: 10px 0;
-  padding: 0.5em 0;
-}
-
-.nav ul {
-  list-style: none;
-  padding: 10;
-  margin: 0;
-  display: flex;
-  align-items: center;
-}
-
-.nav ul li {
-  display: inline-block;
-  margin: 0 10px;
-  padding: 0 15px;
-  font-weight: bold;
-}
-
 .nav ul li a {
   text-decoration: none;
-  color: #333333;
   margin: 0 10px;
   padding: 8px 15px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
+  color: #333333;
+  transition: color 0.3s ease;
 }
 
 .nav ul li a:hover {
-  color:azure;
+  color: coral;
 }
 
 /* Main Content Styles */
 h1 {
+  font-family: 'Satisfy';
 font-size: 36px;
 color: #333333;
 margin-bottom: 20px;
@@ -168,7 +166,7 @@ button{
 	background-color: azure;
 	border-radius: 5px;
 	border: 1px solid coral;
-	box-shadow: 0 10px 15px darkorange;
+	box-shadow: 0 10px 15px chocolate;
 	transition: all 0.35s;
 }
 
@@ -193,6 +191,7 @@ button{
 }
 
 .hero-title span{
+  font-family: 'Satisfy';
   color: orangered;
   text-decoration: underline;
   text-underline-offset: 10px;
@@ -211,20 +210,6 @@ button{
   display: flex;
   justify-content: center;
   padding-top: 40px;
-}
-
-.hero button{
-  cursor: pointer;
-  margin-top: 20px;
-  width: 160px;
-  font-weight: bold;
-  color: aliceblue;
-  line-height: 50px;
-  background-color: coral;
-  border-radius: 5px;
-  border: 1px solid coral;
-  box-shadow: 0 10px 15px darkorange;
-  transition: all 0.35s;
 }
 
 .hero button:hover{
