@@ -132,6 +132,7 @@ header{
     right: -100%;
     width: 100%;
     background-color: blanchedalmond;
+    transition: all 0.5s;
   }
   .headerbar .account, .headerbar .nav{
     display: block;
