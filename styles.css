@@ -235,13 +235,13 @@ button{
   margin: 0 20px;
 }
 
-.main_slide{
+.hero{
   display: flex;
   align-items: center;
   flex-wrap: wrap-reverse;
 }
 
-.main_slide div:nth-child(1){
+.hero-title{
   padding-top: 20px;
   flex: 1;
   font-size: 36px;
@@ -249,28 +249,28 @@ button{
   margin-bottom: 20px;
 }
 
-.main_slide div:nth-child(1) p{
-  font-size: 20px;
-  color: #666666;
-  line-height: 1.5;
-  padding: 20px 0;
-}
-
-.main_slide div:nth-child(1) span{
+.hero-title span{
   color: orangered;
   text-decoration: underline;
   text-underline-offset: 10px;
   text-decoration-color: gold;
 }
 
-.main_slide div:nth-child(2){
+.hero-text{
+  font-size: 20px;
+  color: #666666;
+  line-height: 1.5;
+  padding: 20px 0;
+}
+
+.hero-image{
   flex: 1;
   display: flex;
   justify-content: center;
   padding-top: 40px;
 }
 
-.main_slide button{
+.hero button{
   cursor: pointer;
   margin-top: 20px;
   width: 160px;
@@ -284,7 +284,7 @@ button{
   transition: all 0.35s;
 }
 
-.main_slide button:hover{
+.hero button:hover{
   background-color: aliceblue;
   color: black;
   box-shadow: 0 2px 15px coral;
@@ -296,18 +296,18 @@ button{
 }
 
 @media only screen and (max-width: 550px){
-  .main_slide div:nth-child(1){
+  .hero-title{
 	font-size: 20px;
   }
-  .main_slide div:nth-child(1) p{
+  .hero-title span{
+text-underline-offset: 7px;
+	}
+  .hero-text{
 	padding-top: 5px;
 	margin: 10px 0;
 	font-size: 15px;
   }
-  .main_slide div:nth-child(1) span{
-	text-underline-offset: 7px;
-  }
-  .main_slide div:nth-child(2) img{
+  .hero-image img{
 	width: 75vw;
   }
   .red_btn{
