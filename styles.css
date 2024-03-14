@@ -11,10 +11,10 @@
 /* Global Styles */
 * {
   font-family: "Satisfy", Verdana, Geneva, Tahoma, sans-serif;
-  background-color: blanchedalmond;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: blanchedalmond;
 }
 
 body {
@@ -30,7 +30,6 @@ body {
   align-items: center;
   height: 60px;
   padding: 0 7vw;
-  background-color: blanchedalmond;
   border-bottom: 2px solid burlywood;
   box-shadow: 0 2px 20px pink;
 }
@@ -111,27 +110,29 @@ header{
 }
 
 /* Navigation Styles */
-nav {
+.nav {
   margin-top: 1px;
   text-align: center;
   margin: 10px 0;
   padding: 0.5em 0;
 }
 
-nav ul {
+.nav ul {
   list-style: none;
   padding: 10;
   margin: 0;
+  display: flex;
+  align-items: center;
 }
 
-nav ul li {
+.nav ul li {
   display: inline-block;
   margin: 0 10px;
   padding: 0 15px;
   font-weight: bold;
 }
 
-nav ul li a {
+.nav ul li a {
   text-decoration: none;
   color: #333333;
   margin: 0 10px;
@@ -140,7 +141,7 @@ nav ul li a {
   transition: background-color 0.3s ease;
 }
 
-nav ul li a:hover {
+.nav ul li a:hover {
   color:azure;
 }
 
