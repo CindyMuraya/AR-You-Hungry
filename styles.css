@@ -3,11 +3,10 @@
 /* Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
 .satisfy-regular {
-    font-family: "Satisfy", cursive;
-    font-weight: 400;
-    font-style: normal;
+	font-family: "Satisfy", cursive;
+	font-weight: 400;
+	font-style: normal;
   }
-
 
 /* Global Styles */
 * {
@@ -113,59 +112,59 @@ header{
 
 @media only screen and (max-width: 768px){
   .header .nav, .header .account{
-    display: none;
+	display: none;
   }
   .search{
-    width: 60vw;
+	width: 60vw;
   }
   .bar{
-    display: block;
-    cursor: pointer;
+	display: block;
+	cursor: pointer;
   }
   .headerbar{
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    right: -100%;
-    width: 100%;
-    background-color: blanchedalmond;
-    transition: all 0.5s;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: -100%;
+	width: 100%;
+	background-color: blanchedalmond;
+	transition: all 0.5s;
   }
   .headerbar .account, .headerbar .nav{
-    display: block;
-    font-size: 20px;
+	display: block;
+	font-size: 20px;
   }
   .bar .fa-xmark{
-    display: none;
-    top: 20px;
-    right: 5vw;
-    position: absolute;
-    font-size: 25px;
+	display: none;
+	top: 20px;
+	right: 5vw;
+	position: absolute;
+	font-size: 25px;
   }
   .headerbar .nav ul{
-    flex-direction: column;
-    margin-top: 10px;
-    text-align: center;
+	flex-direction: column;
+	margin-top: 10px;
+	text-align: center;
   }
   .headerbar .nav li{
-    width: 96vw;
-    margin: 10px 0;
-    padding: 15px 30px;
-    box-shadow: 0 2px 15px lavenderblush;
-    font-size: 15px;
-    margin-top: 5px;
+	width: 96vw;
+	margin: 10px 0;
+	padding: 15px 30px;
+	box-shadow: 0 2px 15px lavenderblush;
+	font-size: 15px;
+	margin-top: 5px;
   }
   .headerbar .account{
-    line-height: 40px;
-    margin-top: 60px;
-    background-color: blanchedalmond;
-    padding: 15px;
+	line-height: 40px;
+	margin-top: 60px;
+	background-color: blanchedalmond;
+	padding: 15px;
   }
   .headerbar .account ul{
-    justify-content: space-between;
+	justify-content: space-between;
   }
 }
 
@@ -204,9 +203,36 @@ nav ul li a:hover {
 }
 
 /* Main Content Styles */
+h1 {
+font-size: 36px;
+color: #333333;
+margin-bottom: 20px;
+}
+  
+p {
+font-size: 20px;
+color: #666666;
+line-height: 1.5;
+}
+
+button{
+	cursor: pointer;
+	margin-top: 20px;
+	width: 160px;
+	font-weight: bold;
+	color: coral;
+	line-height: 50px;
+	background-color: azure;
+	border-radius: 5px;
+	border: 1px solid coral;
+	box-shadow: 0 10px 15px darkorange;
+	transition: all 0.35s;
+}
+
 .home{
   background-color: blanchedalmond;
   padding: 0 7vw;
+  margin: 0 20px;
 }
 
 .main_slide{
@@ -218,11 +244,15 @@ nav ul li a:hover {
 .main_slide div:nth-child(1){
   padding-top: 20px;
   flex: 1;
-  font-size: 30px;
+  font-size: 36px;
+  color: #333333;
+  margin-bottom: 20px;
 }
 
 .main_slide div:nth-child(1) p{
   font-size: 20px;
+  color: #666666;
+  line-height: 1.5;
   padding: 20px 0;
 }
 
@@ -240,7 +270,7 @@ nav ul li a:hover {
   padding-top: 40px;
 }
 
-.red_btn{
+.main_slide button{
   cursor: pointer;
   margin-top: 20px;
   width: 160px;
@@ -254,7 +284,7 @@ nav ul li a:hover {
   transition: all 0.35s;
 }
 
-.red_btn:hover{
+.main_slide button:hover{
   background-color: aliceblue;
   color: black;
   box-shadow: 0 2px 15px coral;
@@ -267,42 +297,83 @@ nav ul li a:hover {
 
 @media only screen and (max-width: 550px){
   .main_slide div:nth-child(1){
-    font-size: 20px;
+	font-size: 20px;
   }
   .main_slide div:nth-child(1) p{
-    padding-top: 5px;
-    margin: 10px 0;
-    font-size: 15px;
+	padding-top: 5px;
+	margin: 10px 0;
+	font-size: 15px;
   }
   .main_slide div:nth-child(1) span{
-    text-underline-offset: 7px;
+	text-underline-offset: 7px;
   }
   .main_slide div:nth-child(2) img{
-    width: 75vw;
+	width: 75vw;
   }
   .red_btn{
-    margin-top: 10px;
-    width: 120px;
-    line-height: 30px;
-    font-size: 15px;
-    padding: 0 10px;
+	margin-top: 10px;
+	width: 120px;
+	line-height: 30px;
+	font-size: 15px;
+	padding: 0 10px;
   }
 }
 
-main {
-  margin: 0 20px;
+.restaurant_options{
+  margin: 70px 0;
+  padding: 20px 0;
+  background-color: beige;
+  border-radius: 30px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
-h1 {
-  font-size: 36px;
-  color: #333333;
-  margin-bottom: 20px;
+.options{
+  width: 250px;
+  padding: 30px;
+  text-align: center;
 }
 
-p {
-  font-size: 20px;
-  color: #666666;
-  line-height: 1.5;
+.options div{
+	height: 160px;
+}
+
+.options img{
+	width: 160px;
+	margin-bottom: 15px;
+}
+
+.options p{
+	font-size: 20px;
+	margin-top: 15px;
+	margin-bottom: 10px;
+}
+
+.white_btn{
+	cursor: pointer;
+	margin-top: 20px;
+	width: 160px;
+	font-weight: bold;
+	color: coral;
+	line-height: 50px;
+	background-color: azure;
+	border-radius: 5px;
+	border: 1px solid coral;
+	box-shadow: 0 10px 15px darkorange;
+	transition: all 0.35s;
+}
+
+.white_btn:hover{
+  background-color: coral;
+  color: whitesmoke;
+  box-shadow: 0 2px 15px orange;
+  border: 1px solid darkorange;
+}
+
+.options .white_btn{
+	width: 120px;
+	line-height: 35px;
 }
 
 /* Footer Styles */
