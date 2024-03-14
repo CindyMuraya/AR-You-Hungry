@@ -65,6 +65,44 @@ header{
   color:azure;
 }
 
+.account{
+  flex: 0.1;
+}
+
+.account ul{
+  display: flex;
+  justify-content: end;
+}
+
+.account ul li{
+  padding: 0 15px;
+  font-size: 20px;
+}
+
+.bar i:hover{
+  color: azure;
+}
+
+.search{
+  width: 200px;
+  display: none;
+  justify-content: center;
+}
+
+.search input{
+  width: 100%;
+  outline: none;
+  border: none;
+  padding: 5px;
+}
+
+.srchicon{
+  background-color: antiquewhite;
+  display: block;
+  padding: 4px 5px;
+  cursor: pointer;
+}
+
 /* Navigation Styles */
 nav {
   margin-top: 1px;
