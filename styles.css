@@ -61,7 +61,6 @@ body {
 .account ul{
   display: flex;
   justify-content: end;
-  align-items: center;
   gap: 8px;
   list-style: none;
 }
@@ -72,13 +71,13 @@ body {
   font-size: 20px;
 }
 
-.account ul li i{
+.account ul li a{
   text-decoration: none;
   color: #333333;
   transition: color 0.3s ease;
 }
 
-.account ul li i:hover{
+.account ul li a:hover{
   color: coral;
 }
 
@@ -105,12 +104,13 @@ body {
   outline: none;
   border: none;
   padding: 5px;
+  background-color: bisque;
 }
 
 .srchicon{
-  background-color: antiquewhite;
+  background-color: bisque;
   display: block;
-  padding: 4px 5px;
+  padding: 5px 5px;
   cursor: pointer;
 }
 
@@ -122,7 +122,6 @@ body {
 }
 
 .header .nav ul li{
-  display: inline;
   font-weight: bold;
   list-style: none;
 }
@@ -141,10 +140,16 @@ body {
 
 /* Main Content Styles */
 h1 {
-  font-family: 'Satisfy';
+font-family: 'Satisfy';
 font-size: 36px;
 color: #333333;
 margin-bottom: 20px;
+}
+
+h2{
+  font-size: 30px;
+  color: #333333;
+  margin-bottom: 20px;
 }
   
 p {
@@ -176,6 +181,7 @@ button{
   display: flex;
   align-items: center;
   flex-wrap: wrap-reverse;
+  text-align: left;
 }
 
 .hero-content{
@@ -198,8 +204,46 @@ button{
   padding: 20px 0;
 }
 
-.hero-image{
-  flex: 1;
+  .home{
+    padding: 0 7vw;
+    margin: 0 20px;
+  }
+  
+  .hero{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap-reverse;
+  }
+  
+  .hero-content{
+    padding-top: 20px;
+    flex: 1;
+    font-size: 34px;
+  }
+  
+  .hero-title span{
+    font-family: 'Satisfy';
+    color: orangered;
+    text-decoration: underline;
+    text-underline-offset: 10px;
+    text-decoration-color: gold;
+  }
+  
+  .hero-text{
+    font-size: 15px;
+    color: #666666;
+    padding: 20px 0;
+  }
+  
+  .hero img{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 40px;
+  }
+  
+  .hero-image{
   display: flex;
   justify-content: center;
   padding-top: 40px;
@@ -215,7 +259,7 @@ button{
 .restaurant_options{
   margin: 70px 0;
   padding: 20px 0;
-  background-color: beige;
+  background-color:beige;
   border-radius: 30px;
   display: flex;
   justify-content: space-around;
@@ -226,6 +270,11 @@ button{
   width: 250px;
   padding: 30px;
   text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.options:hover{
+  transform: scale(1.1);
 }
 
 .options div{
@@ -248,13 +297,12 @@ button{
 	margin-top: 20px;
 	width: 160px;
 	font-weight: bold;
-	color: coral;
+	color:orangered;
 	line-height: 50px;
-	background-color: azure;
+	background-color:aliceblue;
 	border-radius: 5px;
-	border: 1px solid coral;
-	box-shadow: 0 10px 15px darkorange;
-	transition: all 0.35s;
+	border: 1px solid chocolate;
+	box-shadow: 0 10px 15px burlywood;
 }
 
 .white_btn:hover{
@@ -262,6 +310,7 @@ button{
   color: whitesmoke;
   box-shadow: 0 2px 15px orange;
   border: 1px solid darkorange;
+  transform: scale(1.1);
 }
 
 .options .white_btn{
@@ -384,7 +433,7 @@ button{
   .bar .fa-xmark{
 	display: none;
 	top: 20px;
-	right: 5w;
+	right: 5vw;
 	position: absolute;
 	font-size: 25px;
   }
@@ -446,7 +495,7 @@ text-underline-offset: 7px;
 	font-size: 15px;
   }
   .hero-image img{
-	width: 75vw;
+	width: 40vw;
   }
   .red_btn{
 	margin-top: 10px;
