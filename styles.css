@@ -116,14 +116,8 @@ body {
 
 /* Navigation Styles */
 .header .nav ul{
-  margin: 0 10px;
-  padding: 0 15px;
-  border-radius: 5px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
   transition: background-color 0.3s ease;
 }
 
@@ -394,7 +388,7 @@ button{
   .bar .fa-xmark{
 	display: none;
 	top: 20px;
-	right: 5vw;
+	right: 5w;
 	position: absolute;
 	font-size: 25px;
   }
@@ -407,7 +401,7 @@ button{
 	width: 96vw;
 	margin: 10px 0;
 	padding: 15px 30px;
-	box-shadow: 0 2px 15px lavenderblush;
+	box-shadow: 0 2px 15px burlywood;
 	font-size: 15px;
 	margin-top: 5px;
   }
