@@ -204,16 +204,16 @@ button{
   padding: 20px 0;
 }
 
-  .home{
-    padding: 0 7vw;
-    margin: 0 20px;
-  }
+.home{
+  padding: 0 7vw;
+  margin: 0 20px;
+}
   
-  .hero{
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap-reverse;
-  }
+.hero{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap-reverse;
+}
   
   .hero-content{
     padding-top: 20px;
