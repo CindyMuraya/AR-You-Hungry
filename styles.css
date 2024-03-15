@@ -219,6 +219,147 @@ button{
   border: 1px solid darkorange;
 }
 
+.restaurant_options{
+  margin: 70px 0;
+  padding: 20px 0;
+  background-color: beige;
+  border-radius: 30px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.options{
+  width: 250px;
+  padding: 30px;
+  text-align: center;
+}
+
+.options div{
+	height: 160px;
+}
+
+.options img{
+	width: 160px;
+	margin-bottom: 15px;
+}
+
+.options p{
+	font-size: 20px;
+	margin-top: 15px;
+	margin-bottom: 10px;
+}
+
+.white_btn{
+	cursor: pointer;
+	margin-top: 20px;
+	width: 160px;
+	font-weight: bold;
+	color: coral;
+	line-height: 50px;
+	background-color: azure;
+	border-radius: 5px;
+	border: 1px solid coral;
+	box-shadow: 0 10px 15px darkorange;
+	transition: all 0.35s;
+}
+
+.white_btn:hover{
+  background-color: coral;
+  color: whitesmoke;
+  box-shadow: 0 2px 15px orange;
+  border: 1px solid darkorange;
+}
+
+.options .white_btn{
+	width: 120px;
+	line-height: 35px;
+}
+
+.newsletter{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: start;
+	padding: 100px 0;
+}
+
+.newsletter-title{
+	flex: 0.5;
+	font-size: 30px;
+}
+
+.newsletter-title span{
+	color: firebrick;
+	font-size: 35px;
+	font-weight: bold;
+}
+
+.newsletter-input div{
+  width: 70%;
+  display: flex;
+  align-items: center;
+  background-color: bisque;
+}
+
+.newsletter-input input{
+	width: 100%;
+	font-size: 15px;
+  margin-top: 20px;
+	display: flex;
+	flex: 0.5;
+	padding: 10px;
+	outline: none;
+	border: none;
+	background-color: oldlace;
+}
+
+.newsletter button{
+	margin: 0 20px;
+	font-size: 15px;
+	box-shadow: none;
+	border-radius: 10px;
+}
+
+/* Footer Styles */
+.footer {
+  border-top: 2px solid beige;
+  padding: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  cursor: pointer;
+}
+
+.footer-logo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-logo img{
+  width: 70px;
+  height: 60px;
+  margin-top: 5px; 
+}
+
+.footer-text{
+  font-size: 15px;
+  color:#333333;
+  padding: 5px;
+}
+
+.footer-text a{
+  color: coral;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-text a:hover {
+  color:deeppink;
+}
+
 /* RESPONSIVENESS */
 @media only screen and (max-width: 768px){
   .header .nav, .header .account{
@@ -291,6 +432,12 @@ button{
 	font-size: 11px;
 	padding: 15px;
   }
+  .footer .footer-content{
+    margin: 0;
+  }
+  .footer{
+    margin-bottom: 10px;
+  }
 }
 
 @media only screen and (max-width: 550px){
@@ -315,121 +462,8 @@ text-underline-offset: 7px;
 	font-size: 15px;
 	padding: 0 10px;
   }
-}
-
-.restaurant_options{
-  margin: 70px 0;
-  padding: 20px 0;
-  background-color: beige;
-  border-radius: 30px;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
-
-.options{
-  width: 250px;
-  padding: 30px;
-  text-align: center;
-}
-
-.options div{
-	height: 160px;
-}
-
-.options img{
-	width: 160px;
-	margin-bottom: 15px;
-}
-
-.options p{
-	font-size: 20px;
-	margin-top: 15px;
-	margin-bottom: 10px;
-}
-
-.white_btn{
-	cursor: pointer;
-	margin-top: 20px;
-	width: 160px;
-	font-weight: bold;
-	color: coral;
-	line-height: 50px;
-	background-color: azure;
-	border-radius: 5px;
-	border: 1px solid coral;
-	box-shadow: 0 10px 15px darkorange;
-	transition: all 0.35s;
-}
-
-.white_btn:hover{
-  background-color: coral;
-  color: whitesmoke;
-  box-shadow: 0 2px 15px orange;
-  border: 1px solid darkorange;
-}
-
-.options .white_btn{
-	width: 120px;
-	line-height: 35px;
-}
-
-.newsletter{
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	align-items: center;
-	padding: 100px 0;
-}
-
-.newsletter h2{
-	flex: 0.5;
-	font-size: 30px;
-}
-
-.newsletter span{
-	color: firebrick;
-	font-size: larger;
-	font-weight: bold;
-}
-
-.newsletter input{
-	width: 100%;
-	margin-top: 20px;
-	display: flex;
-	flex: 0.5;
-	font-size: 15px;
-	padding: 10px;
-	outline: none;
-	border: none;
-	background-color: oldlace;
-}
-
-.newsletter button{
-	margin: 0;
-	font-size: 20px;
-	box-shadow: none;
-	border-radius: 0 10px 10px 0;
-}
-
-/* Footer Styles */
-footer {
-  background-color: #333333;
-  color: #ffffff;
-  padding: 20px;
-  text-align: center;
-}
-
-.footer-text {
-  font-size: 14px;
-}
-
-.footer-link {
-  color: #ffffff;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.footer-link:hover {
-  color: #cccccc;
+  .footer{
+    margin-bottom: 0;
+    padding-bottom: 25px;
+  }
 }
