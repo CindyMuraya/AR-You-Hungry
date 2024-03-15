@@ -55,7 +55,7 @@ body {
 }
 
 .account{
-  flex: 0.8;
+  flex: 0.1;
 }
 
 .account ul{
@@ -72,13 +72,13 @@ body {
   font-size: 20px;
 }
 
-.account ul li a{
+.account ul li i{
   text-decoration: none;
   color: #333333;
   transition: color 0.3s ease;
 }
 
-.account ul li a:hover{
+.account ul li i:hover{
   color: coral;
 }
 

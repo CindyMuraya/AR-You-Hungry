@@ -7,9 +7,9 @@ searchicon1.addEventListener("click", function(){
     searchicon1.style.display = 'none';
 });
 
-const searchicon2 = Document.querySelector("#searchicon1");
-const srchicon2 = Document.querySelector("#srchicon2");
-const search2 = Document.querySelector("#searchinput1");
+const searchicon2 = Document.querySelector("#searchicon2");
+const srchicon2 = Document.querySelector("#srchicon");
+const searchinput2 = Document.querySelector("#searchinput2");
 
 searchicon2.addEventListener("click", function(){
     searchinput2.style.display = 'flex';
