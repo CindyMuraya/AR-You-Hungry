@@ -18,7 +18,7 @@
 }
 
 body {
-  font-size: 20px;
+  font-size: 24px;
   line-height: 1.6;
   color: #333333;
   -ms-overflow-style: none;
@@ -140,22 +140,22 @@ body {
 
 /* Main Content Styles */
 h1 {
-font-family: 'Satisfy';
-font-size: 36px;
-color: #333333;
-margin-bottom: 20px;
-}
-
-h2{
-  font-size: 30px;
+  font-family: 'Satisfy';
+  font-size: 36px;
   color: #333333;
   margin-bottom: 20px;
 }
+
+h2{
+  font-size: 32px;
+  color: #333333;
+  text-align: center;
+}
   
 p {
-font-size: 20px;
-color: #666666;
-line-height: 1.5;
+  font-size: 24px;
+  color: #666666;
+  line-height: 1.5;
 }
 
 button{
@@ -163,44 +163,13 @@ button{
 	margin-top: 20px;
 	width: 160px;
 	font-weight: bold;
-	color: coral;
+	color: darkred;
 	line-height: 50px;
-	background-color: azure;
+	background-color:white;
 	border-radius: 5px;
 	border: 1px solid coral;
-	box-shadow: 0 10px 15px beige;
+	box-shadow: 0 10px 15px burlywood;
 	transition: all 0.35s;
-}
-
-.home{
-  padding: 0 7vw;
-}
-
-.hero{
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap-reverse;
-  text-align: left;
-}
-
-.hero-content{
-  padding-top: 20px;
-  flex: 1;
-  font-size: 34px;
-}
-
-.hero-title span{
-  font-family: 'Satisfy';
-  color: orangered;
-  text-decoration: underline;
-  text-underline-offset: 10px;
-  text-decoration-color: gold;
-}
-
-.hero-text{
-  font-size: 15px;
-  color: #666666;
-  padding: 20px 0;
 }
 
 .home{
@@ -217,32 +186,28 @@ button{
 .hero-content{
   padding-top: 20px;
   flex: 1;
-  font-size: 34px;
+}
+
+.hero-title{
+  font-size: 36px;
 }
   
 .hero-title span{
   font-family: 'Satisfy';
-  color: orangered;
+  color: darkred;
   text-decoration: underline;
   text-underline-offset: 10px;
   text-decoration-color: gold;
 }
   
 .hero-text{
-  font-size: 15px;
+  font-size: 20px;
   color: #666666;
   padding: 20px 0;
 }
   
-.hero img{
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-top: 40px;
-}
-  
 .hero-image{
+  flex: 1;
   display: flex;
   justify-content: center;
   padding-top: 40px;
@@ -256,9 +221,9 @@ button{
 }
 
 .restaurant_options{
-  margin: 70px 0;
-  padding: 20px 0;
-  background-color:beige;
+  margin: 45px 0;
+  padding: 30px 0;
+  background-color: honeydew;
   border-radius: 30px;
   display: flex;
   justify-content: space-around;
@@ -277,7 +242,7 @@ button{
 }
 
 .options div{
-	height: 160px;
+	height: 150px;
 }
 
 .options img{
@@ -291,28 +256,14 @@ button{
 	margin-bottom: 10px;
 }
 
-.white_btn{
-	cursor: pointer;
-	margin-top: 20px;
-	width: 160px;
-	font-weight: bold;
-	color:orangered;
-	line-height: 50px;
-	background-color:aliceblue;
-	border-radius: 5px;
-	border: 1px solid chocolate;
-	box-shadow: 0 10px 15px burlywood;
-}
-
-.white_btn:hover{
+.options button:hover{
   background-color: coral;
   color: whitesmoke;
   box-shadow: 0 2px 15px orange;
   border: 1px solid darkorange;
-  transform: scale(1.1);
 }
 
-.options .white_btn{
+.options button{
 	width: 120px;
 	line-height: 35px;
 }
@@ -327,39 +278,49 @@ button{
 
 .newsletter-title{
 	flex: 0.5;
-	font-size: 30px;
+  font-size: 30px;
 }
 
 .newsletter-title span{
 	color: firebrick;
-	font-size: 35px;
+	font-size: 34px;
 	font-weight: bold;
+}
+
+.newsletter-input{
+  width: 100%;
+  display: flex;
+  flex: 0.5;
+  margin-top: 20px;
 }
 
 .newsletter-input div{
   width: 70%;
   display: flex;
   align-items: center;
-  background-color: bisque;
 }
 
 .newsletter-input input{
 	width: 100%;
 	font-size: 15px;
-  margin-top: 20px;
-	display: flex;
-	flex: 0.5;
 	padding: 10px;
 	outline: none;
 	border: none;
-	background-color: oldlace;
+	background-color:floralwhite;
 }
 
-.newsletter button{
-	margin: 0 20px;
+.newsletter-input button{
+	margin: 0 5px;
 	font-size: 15px;
 	box-shadow: none;
 	border-radius: 10px;
+  width: 100px;
+}
+
+.newsletter-input button:hover{
+  background-color: coral;
+  color: whitesmoke;
+  box-shadow: 0 2px 15px darkorange;
 }
 
 /* Footer Styles */
@@ -392,7 +353,7 @@ button{
 }
 
 .footer-text a{
-  color: coral;
+  color: black;
   text-decoration: none;
   transition: color 0.3s ease;
 }
@@ -458,20 +419,32 @@ button{
   .headerbar .account ul{
 	justify-content: space-between;
   }
+  .restaurant_options{
+  background-color: blanchedalmond;
+  }
   .options{
 	flex: 1;
 	text-align: center;
 	margin-bottom: 20px;
   }
   .options img{
-	width: 70vw;
+	width: 35vw;
   }
-  .newsletter h2{
+  .newsletter-title{
 	font-size: 22px;
   }
-  .newsletter input{
+  .newsletter-title span{
+    font-size: 24px;
+  }
+  .newsletter-input input{
 	font-size: 11px;
 	padding: 15px;
+  width: 50vw;
+  }
+  .newsletter-input button{
+    line-height: 45px;
+    width: 80px;
+    font-size: 13px;
   }
   .footer .footer-content{
     margin: 0;
@@ -494,18 +467,24 @@ text-underline-offset: 7px;
 	font-size: 15px;
   }
   .hero-image img{
-	width: 40vw;
+	width: 70vw;
   }
-  .red_btn{
+  .hero button{
 	margin-top: 10px;
 	width: 120px;
 	line-height: 30px;
-	font-size: 15px;
+	font-size: 12px;
 	padding: 0 10px;
+  }
+  .newsletter{
+    justify-content: center;
+  }
+  .newsletter-title{
+    flex: 1;
   }
   .footer{
     margin-bottom: 0;
-    padding-bottom: 25px;
+    padding-bottom: 20px;
   }
 }
 

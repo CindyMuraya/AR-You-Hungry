@@ -26,21 +26,21 @@
 			<div class="headerbar">
 				<div class="account">
 					<ul>
-						<a href="./index.html">
+						<a href="./index.html" name="homepage">
 							<li>
 								<i class="fa-solid fa-house-chimney"></i>
 							</li>
 						</a>
-						<a href="#">
+						<a href="#" name="search2">
 							<li>
 								<i class="fa-solid fa-magnifying-glass searchicon" id="searchicon1"></i>
 							</li>
 						</a>
 						<div class="search" id="searchinput1">
-							<input type="search">
+							<input type="search" id="search">
 							<i class="fa-solid fa-magnifying-glass srchicon"></i>
 						</div>
-						<a href="./login.html">
+						<a href="./login.html" name="loginuser">
 							<li>
 							<i class="fa-solid fa-user" id="user-mb"></i>
 							</li>
@@ -50,16 +50,16 @@
 
 				<div class="nav">
 					<ul>
-						<a href="./index.html">
+						<a href="./index.html" name="home">
 							<li>Home</li>
 						</a>
-						<a href="./reservation.html">
+						<a href="./reservation.html" name="reservation">
 							<li>Make a Reservation</li>
 						</a>
-						<a href="./login.html">
+						<a href="./login.html" name="login">
 							<li>Login</li>
 						</a>
-						<a href="./register.html">
+						<a href="./register.html" name="register">
 							<li>Register</li>
 						</a>
 					</ul>
@@ -67,7 +67,7 @@
 			</div>
 
 			<div class="logo">
-				<a href="./index.html">
+				<a href="./index.html" name="logo">
 					<img src="Images/logo2.svg" alt="AR You Hungry? - Logo">
 				</a>
 			</div>
@@ -79,16 +79,16 @@
 
 			<div class="nav">
 				<ul>
-					<a href="./index.html">
+					<a href="./index.html" name="home">
 						<li>Home</li>
 					</a>
-					<a href="./reservation.html">
+					<a href="./reservation.html" name="reservation">
 						<li>Make a Reservation</li>
 					</a>
-					<a href="./login.html">
+					<a href="./login.html" name="login">
 						<li>Login</li>
 					</a>
-					<a href="./register.html">
+					<a href="./register.html" name="register">
 						<li>Register</li>
 					</a>
 				</ul>
@@ -98,20 +98,20 @@
 				<ul>
 					<a href="./index.html">
 						<li>
-							<i class="fa-solid fa-house-chimney"></i>
+							<i class="fa-solid fa-house-chimney" name="account"></i>
 						</li>
 					</a>
 					<a href="#">
 						<li>
-							<i class="fa-solid fa-magnifying-glass searchicon" id="searchicon2"></i>
+							<i class="fa-solid fa-magnifying-glass searchicon" id="searchicon2" name="searchicon"></i>
 						</li>
 					</a>
 					<div class="search" id="searchinput2">
-						<input type="search" >
+						<input type="search" id="searchinput">
 						<i class="fa-solid fa-magnifying-glass srchicon"></i>
 					</div>
 					<a href="./login.html">
-						<i class="fa-solid fa-user" id="user-lap"></i>
+						<i class="fa-solid fa-user" id="user-lap" name="userlogin"></i>
 					</a>
 				</ul>
 			</div>
@@ -129,7 +129,7 @@
 				<button>Explore Now! <i class="fa-solid fa-arrow-alt-circle-right"></i></button>
 			</div>
 			<div class="hero-image">
-				<img src="./Images/7.jpg" alt="AR You Hungry? - Hero Image">
+				<img src="./Images/White plate cutlery and napkin on featuring plate, black, and table (1).jpg" alt="AR You Hungry? - Hero Image">
 			</div>
 		</div>
 
@@ -142,29 +142,33 @@
 					<div>
 					<img src="./Images/background.jpg" alt="First Restaurant">
 					</div>
+					<br>
 					<h3>First Restaurant</h3>
-					<button class="white_btn">Take a look </button>
+					<button>Take a look </button>
 				</div>
 				<div class="options">
 					<div>
 					<img src="./Images/2.jpg" alt="Second Restaurant">
 					</div>
+					<br>
 					<h3>Second Restaurant</h3>
-					<button class="white_btn">Take a look </button>
+					<button>Take a look </button>
 				</div>
 				<div class="options">
 					<div>
 					<img src="./Images/3.jpg" alt="Third Restaurant">
 					</div>
+					<br>
 					<h3>Third Restaurant</h3>
-					<button class="white_btn">Take a look </button>
+					<button>Take a look </button>
 				</div>
 				<div class="options">
 					<div>
 					<img src="./Images/Premium Photo _ Restaurant blur background design resource.jpg" alt="Fourth Restaurant">
 					</div>
+					<br>
 					<h3>Fourth Restaurant</h3>
-					<button class="white_btn">Take a look </button>
+					<button>Take a look </button>
 				</div>
 		</div>
 
@@ -182,12 +186,14 @@
 		<!-- #NEWSLETTER-->
 		<div class="newsletter">
 			<div class="newsletter-title">
-				<h2>Subscribe to <span>Our Newsletter: </span></h2>
+				<h3>Subscribe to <span>Our Newsletter: </span></h3>
 			</div>
 			<div class="newsletter-input">
-				<input type="email" placeholder="Enter your email..." />
+				<div>
+				<input id="newsletterinput" type="email" placeholder="Enter your email..." />
+				</div>
+				<button>Subscribe</button>
 			</div>
-			<button>Subscribe</button>
 		</div>
 	</div>
 
@@ -195,7 +201,7 @@
 	<div class="footer">
 		<div class="footer-content">
 			<div class="footer-logo">
-				<a href="#">
+				<a href="#" name="footerlogo">
 					<img src="Images/logo2.svg" alt="AR You Hungry? logo">
 				</a>
 			</div>
