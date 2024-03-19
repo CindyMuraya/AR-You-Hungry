@@ -215,35 +215,35 @@ button{
   flex-wrap: wrap-reverse;
 }
   
-  .hero-content{
-    padding-top: 20px;
-    flex: 1;
-    font-size: 34px;
-  }
+.hero-content{
+  padding-top: 20px;
+  flex: 1;
+  font-size: 34px;
+}
   
-  .hero-title span{
-    font-family: 'Satisfy';
-    color: orangered;
-    text-decoration: underline;
-    text-underline-offset: 10px;
-    text-decoration-color: gold;
-  }
+.hero-title span{
+  font-family: 'Satisfy';
+  color: orangered;
+  text-decoration: underline;
+  text-underline-offset: 10px;
+  text-decoration-color: gold;
+}
   
-  .hero-text{
-    font-size: 15px;
-    color: #666666;
-    padding: 20px 0;
-  }
+.hero-text{
+  font-size: 15px;
+  color: #666666;
+  padding: 20px 0;
+}
   
-  .hero img{
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 40px;
-  }
+.hero img{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 40px;
+}
   
-  .hero-image{
+.hero-image{
   display: flex;
   justify-content: center;
   padding-top: 40px;
