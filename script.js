@@ -19,6 +19,7 @@ searchicon2.addEventListener('click', function(){
 const bar = document.querySelector('.fa-bars');
 const cross = document.querySelector('#hdcross');
 const headerbar = document.querySelector('.headerbar');
+const header = document.querySelector('#header');
 
 bar.addEventListener('click', function(){
     setTimeout(()=>{

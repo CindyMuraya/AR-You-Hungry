@@ -15,6 +15,12 @@
   padding: 0;
   box-sizing: border-box;
   background-color: blanchedalmond;
+  transition: 0.3s;
+}
+
+html{
+  font-size: 90%;
+  overflow-x: hidden;
 }
 
 body {
