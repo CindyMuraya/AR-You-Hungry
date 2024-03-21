@@ -99,6 +99,57 @@ body {
   color: azure;
 }
 
+.location-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.location{
+  width: 200px;
+  display: none;
+  justify-content: center;
+}
+
+.location input {
+  width: 100%;
+  outline: none;
+  border: none;
+  padding: 5px;
+  background-color: bisque;
+  padding: 8px;
+}
+
+.location button {
+  margin: 0 2px;
+	font-size: 12px;
+	box-shadow: none;
+	border-radius: 10px;
+  width: 50px;
+	line-height: 35px;
+  cursor: pointer;
+	color: darkred;
+	background-color:white;
+	border: 1px solid coral;
+	box-shadow: 0 10px 15px burlywood;
+	transition: all 0.35s;
+}
+
+.location button:hover{
+  background-color: coral;
+  color: whitesmoke;
+  box-shadow: 0 2px 15px orange;
+  border: 1px solid darkorange;
+}
+
+.search-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
 .search{
   width: 200px;
   display: none;

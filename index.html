@@ -31,14 +31,27 @@
 								<i class="fa-solid fa-house-chimney"></i>
 							</li>
 						</a>
+						<a href="#">
+							<li>
+								<i class="fa-solid fa-location-dot locationicon" id="locationicon1" name="location-icon"></i>
+							</li>
+						</a>
+						<div class="location-container">
+							<div class="location" id="locationinput1">
+								<input type="text" id="location" placeholder="Enter Your Location">
+								<i class="fa fa-magnifying-glass-location locicon"></i>
+							</div>
+						</div>
 						<a href="#" name="search2">
 							<li>
 								<i class="fa-solid fa-magnifying-glass searchicon" id="searchicon1"></i>
 							</li>
 						</a>
-						<div class="search" id="searchinput1">
-							<input type="search" id="search">
-							<i class="fa-solid fa-magnifying-glass srchicon"></i>
+						<div class="search-container">
+							<div class="search" id="searchinput1">
+								<input type="search" name="" id="search" placeholder="Find a Restaurant..." onkeyup="search()">
+								<i class="fa-solid fa-magnifying-glass srchicon"></i>
+							</div>
 						</div>
 						<a href="./login.html" name="loginuser">
 							<li>
@@ -53,14 +66,11 @@
 						<a href="./index.html" name="home">
 							<li>Home</li>
 						</a>
-						<a href="./reservation.html" name="reservation">
-							<li>Make a Reservation</li>
+						<a href="#" class="restaurant-options">
+							<li>Popular Restaurants</li>
 						</a>
-						<a href="./login.html" name="login">
-							<li>Login</li>
-						</a>
-						<a href="./register.html" name="register">
-							<li>Register</li>
+						<a href="#" class="restaurant-list">
+							<li>Restaurants</li>
 						</a>
 					</ul>
 				</div>
@@ -82,14 +92,11 @@
 					<a href="./index.html" name="home">
 						<li>Home</li>
 					</a>
-					<a href="./reservation.html" name="reservation">
-						<li>Make a Reservation</li>
+					<a href="#restaurant-options" class="restaurant-options-link">
+						<li>Popular Restaurants</li>
 					</a>
-					<a href="./login.html" name="login">
-						<li>Login</li>
-					</a>
-					<a href="./register.html" name="register">
-						<li>Register</li>
+					<a href="#restaurant-list" class="restaurant-list-link">
+						<li>Restaurant List</li>
 					</a>
 				</ul>
 			</div>
@@ -103,12 +110,25 @@
 					</a>
 					<a href="#">
 						<li>
+							<i class="fa-solid fa-location-dot locationicon" id="locationicon2" name="location-icon"></i>
+						</li>
+					</a>
+					<div class="location-container">
+						<div class="location" id="locationinput2">
+								<input type="text" id="location-input" placeholder="Enter Your Location">
+								<i class="fa-solid fa-location-arrow locicon"></i>
+						</div>
+					</div>
+					<a href="#">
+						<li>
 							<i class="fa-solid fa-magnifying-glass searchicon" id="searchicon2" name="searchicon"></i>
 						</li>
 					</a>
-					<div class="search" id="searchinput2">
-						<input type="search" id="searchinput">
-						<i class="fa-solid fa-magnifying-glass srchicon"></i>
+					<div class="search-container">
+						<div class="search" id="searchinput2">
+							<input type="search" name="" id="searchinput" placeholder="Find a Restaurant..." onkeyup="search()">
+							<i class="fa-solid fa-magnifying-glass srchicon"></i>
+						</div>
 					</div>
 					<a href="./login.html">
 						<i class="fa-solid fa-user" id="user-lap" name="userlogin"></i>
@@ -137,7 +157,7 @@
 
 		<!-- # POPULAR RESTAURANT DISPLAY-->
 		<h2>Popular Restaurants</h2>
-		<div class="restaurant_options">
+		<div id="restaurant-options" class="restaurant_options">
 				<div class="options">
 					<div>
 					<img src="./Images/background.jpg" alt="First Restaurant">
@@ -170,6 +190,11 @@
 					<h3>Fourth Restaurant</h3>
 					<button>Take a look </button>
 				</div>
+		</div>
+
+		<!-- Restaurant results will be displayed here -->
+		<div id="restaurant-list" class="restaurant-list">
+        
 		</div>
 
 		<!-- #ABOUT -->
