@@ -37,7 +37,7 @@ locationicon2.addEventListener('click', function(){
 const bar = document.querySelector('.fa-bars');
 const cross = document.querySelector('#hdcross');
 const headerbar = document.querySelector('.headerbar');
-const header = document.querySelector('#header');
+const header = document.querySelector('#header');;
 
 bar.addEventListener('click', function(){
     setTimeout(()=>{
@@ -51,6 +51,7 @@ cross.addEventListener('click', function(){
     headerbar.style.right = '-100%';
 });
 
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -61,7 +62,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-const form = document.getElementById('location-form');
+const form = document.getElementById('location-container');
 const locationInput = document.getElementById('location-input');
 const restaurantList = document.getElementById('restaurant-list');
 const mapContainer = document.getElementById('map');
