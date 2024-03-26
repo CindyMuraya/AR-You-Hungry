@@ -175,15 +175,15 @@ body {
 .header .nav {
   display: flex;
   align-items: center;
-  font-weight: bold;
   list-style: none;
 }
 
 .header .nav a {
   text-decoration: none;
+  font-family: 'Satisfy', cursive;
   margin: 0 10px;
   padding: 8px 15px;
-  color: #333;
+  color: maroon;
   transition: color 0.3s ease;
 }
 
