@@ -119,6 +119,16 @@
 					<div class="search-container">
 						<div class="search" id="searchinput2">
 							<input type="search" name="" id="searchinput" placeholder="Find a Restaurant..." onkeyup="search()">
+							<select id="filterOptions">
+								<option value="all">All Cuisines</option>
+								<option value="Italian">Italian</option>
+								<option value="Sushi">Sushi</option>
+								<option value="Steakhouse">Steakhouse</option>
+								<option value="BBQ">BBQ</option>
+								<option value="Indian">Indian</option>
+								<option value="Pizza">Pizza</option>
+								<option value="Burgers">Burgers</option>
+							</select>
 							<i class="fa-solid fa-magnifying-glass srchicon"></i>
 						</div>
 					</div>
@@ -188,55 +198,55 @@
 		<h1>Restaurants</h1>
 		<div id="restaurant-list" class="restaurant-list">
 			<ul>
-			  <li>
+			  <li class="Italian">
 				<h2>Italiano's Trattoria</h2>
 				<p>Authentic Italian cuisine in a cozy atmosphere.</p>
 				<p>Location: 123 Main Street, Cityville</p>
 				<p class="rating">Rating: 4.5/5</p>
 			  </li>
-			  <li>
+			  <li class="BBQ">
 				<h2>Spice &amp; Smoke BBQ</h2>
 				<p>Delicious barbecue with a variety of smoked meats and flavorful spices.</p>
 				<p>Location: 456 Oak Avenue, Townsville</p>
 				<p class="rating">Rating: 4.8/5</p>
 			  </li>
-			  <li>
+			  <li class="Sushi">
 				<h2>Sushi Zen</h2>
 				<p>Exquisite sushi and Japanese cuisine served with style.</p>
 				<p>Location: 789 Pine Street, Villagetown</p>
 				<p class="rating">Rating: 4.7/5</p>
 			  </li>
-			  <li>
+			  <li class="Italian">
 				<h2>La Trattoria</h2>
 				<p>Italian Cuisine</p>
 				<p>123 Main Street, Cityville</p>
 				<p class="rating">Rating: 4.5/5</p>
 			  </li>
-			  <li>
+			  <li class="Steakhouse">
 				<h2>The Sizzling Grill</h2>
 				<p>American Steakhouse</p>
 				<p>456 Oak Avenue, Townsville</p>
 				<p class="rating">Rating: 4.8/5</p>
 			  </li>
-			  <li>
+			  <li class="Sushi">
 				<h2>Sushi Paradise</h2>
 				<p>Japanese Sushi Bar</p>
 				<p>789 Maple Road, Villageton</p>
 				<p class="rating">Rating: 4.2/5</p>
 			  </li>
-			  <li>
+			  <li class="Indian">
 				<h2>Curry Kingdom</h2>
 				<p>Indian Cuisine</p>
 				<p>101 Cedar Street, Spicetown</p>
 				<p class="rating">Rating: 4.7/5</p>
 			  </li>
-			  <li>
+			  <li class="Pizza">
 				<h2>Mamma Mia Pizzeria</h2>
 				<p>Italian Pizza</p>
 				<p>210 Elm Street, Pizzaville</p>
 				<p class="rating">Rating: 4.6/5</p>
 			  </li>
-			  <li>
+			  <li class="Burger">
 				<h2>Burger Barn</h2>
 				<p>American Burger Joint</p>
 				<p>315 Walnut Avenue, Burgertown</p>

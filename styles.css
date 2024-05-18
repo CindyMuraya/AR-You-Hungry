@@ -151,7 +151,7 @@ body {
 }
 
 .search{
-  width: 200px;
+  width: 300px;
   display: none;
   justify-content: center;
 }
@@ -160,7 +160,7 @@ body {
   width: 100%;
   outline: none;
   border: none;
-  padding: 5px;
+  padding: 10px;
   background-color: bisque;
 }
 
@@ -169,6 +169,25 @@ body {
   display: block;
   padding: 5px 5px;
   cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+}
+
+li:last-child {
+  border-bottom: none;
+}
+
+.selected {
+  background-color: #f0f0f0;
 }
 
 /* Navigation Styles */

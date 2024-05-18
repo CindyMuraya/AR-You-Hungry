@@ -62,6 +62,31 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+  const searchInput = document.getElementById('searchinput');
+  const filterOptions = document.getElementById('filterOptions');
+  const restaurantList = document.getElementById('restaurant-list').getElementsByTagName('li');
+
+  searchInput.addEventListener('keyup', filterRestaurants);
+  filterOptions.addEventListener('change', filterRestaurants);
+
+  function filterRestaurants() {
+    const searchTerm = searchInput.value.toLowerCase();
+    const selectedCuisine  = filterOptions.value;
+
+    Array.from(restaurantList).forEach(function(item) {
+      const text = item.textContent.toLowerCase();
+      const cuisine = item.dataset.cuisine === selectedCuisine || selectedCuisine === 'all';
+
+      if (text.includes(searchTerm) && cuisine) {
+        item.style.display = 'block';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  }
+});
+
 const form = document.getElementById('location-container');
 const locationInput = document.getElementById('location-input');
 const restaurantList = document.getElementById('restaurant-list');
