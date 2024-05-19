@@ -64,7 +64,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 document.addEventListener('DOMContentLoaded', function() {
   const searchInput = document.getElementById('searchinput');
-  const filterOptions = document.getElementById('filterOptions');
+  const filterOptions = document.getElementById('cuisineOptions');
   const restaurantList = document.getElementById('restaurant-list').getElementsByTagName('li');
 
   searchInput.addEventListener('keyup', filterRestaurants);
@@ -86,6 +86,75 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
+
+const apiUrl = 'http://localhost:5000';
+
+async function searchRestaurants() {
+    const location = document.getElementById('location-input').value;
+    const cuisine = document.getElementById('cuisineOptions').value;
+
+    let query = '';
+    if (location) query += `location=${location}&`;
+    if (cuisine) query += `cuisine=${cuisine}`;
+
+    const response = await fetch(`${apiUrl}/restaurants/search?${query}`);
+    const restaurants = await response.json();
+
+    displayResults(restaurants);
+}
+
+function displayResults(restaurants) {
+    const resultsDiv = document.getElementById('results');
+    resultsDiv.innerHTML = '';
+
+    restaurants.forEach(restaurant => {
+        const restaurantDiv = document.createElement('div');
+        restaurantDiv.classList.add('restaurant');
+        restaurantDiv.innerHTML = `
+            <h3>${restaurant.name}</h3>
+            <p>Location: ${restaurant.location}</p>
+            <p>Cuisine: ${restaurant.cuisine}</p>
+            <p>Rating: ${restaurant.rating}</p>
+            <button onclick="showReservationForm('${restaurant._id}')">Reserve</button>
+        `;
+        resultsDiv.appendChild(restaurantDiv);
+    });
+}
+
+function showReservationForm(restaurantId) {
+    document.getElementById('reservation-form').classList.remove('hidden');
+    document.getElementById('reservation').onsubmit = function(event) {
+        event.preventDefault();
+        makeReservation(restaurantId);
+    };
+}
+
+async function makeReservation(restaurantId) {
+    const name = document.getElementById('name').value;
+    const date = document.getElementById('date').value;
+    const time = document.getElementById('time').value;
+    const partySize = document.getElementById('partySize').value;
+
+    const reservation = { name, date, time, partySize };
+
+    const response = await fetch(`${apiUrl}/restaurants/${restaurantId}/reservations`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(reservation)
+    });
+
+    if (response.ok) {
+        alert('Reservation made successfully!');
+        document.getElementById('reservation-form').classList.add('hidden');
+        document.getElementById('reservation').reset();
+    } else {
+        const error = await response.json();
+        alert(`Error: ${error.msg}`);
+    }
+}
+
 
 const form = document.getElementById('location-container');
 const locationInput = document.getElementById('location-input');

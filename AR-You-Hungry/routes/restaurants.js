@@ -4,7 +4,7 @@ const router = express.Router();
 const Restaurant = require('../models/Restaurant');
 
 // @route   GET /restaurants
-// @description    Get all restaurants
+// @desc    Get all restaurants
 router.get('/', async (req, res) => {
     try {
         const restaurants = await Restaurant.find();
@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
 });
 
 // @route   POST /restaurants
-// @description    Add a new restaurant
+// @desc    Add a new restaurant
 router.post('/', async (req, res) => {
     const { name, location, cuisine, rating } = req.body;
     try {
@@ -28,7 +28,7 @@ router.post('/', async (req, res) => {
 });
 
 // @route   POST /restaurants/:id/reservations
-// @description    Add a reservation
+// @desc    Add a reservation
 router.post('/:id/reservations', async (req, res) => {
     const { name, date, time, partySize } = req.body;
     try {
@@ -36,6 +36,25 @@ router.post('/:id/reservations', async (req, res) => {
         restaurant.reservations.push({ name, date, time, partySize });
         await restaurant.save();
         res.json(restaurant);
+    } catch (err) {
+        res.status(500).send('Server Error');
+    }
+});
+
+// @route   GET /restaurants/search
+// @desc    Search for restaurants by location and cuisine
+router.get('/search', async (req, res) => {
+    const { location, cuisine } = req.query;
+    try {
+        let query = {};
+        if (location) {
+            query.location = new RegExp(location, 'i'); // case-insensitive
+        }
+        if (cuisine) {
+            query.cuisine = new RegExp(cuisine, 'i'); // case-insensitive
+        }
+        const restaurants = await Restaurant.find(query);
+        res.json(restaurants);
     } catch (err) {
         res.status(500).send('Server Error');
     }

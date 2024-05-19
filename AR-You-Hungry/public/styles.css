@@ -190,18 +190,6 @@ li:last-child {
   background-color: #f0f0f0;
 }
 
-input[type="text"], input[type="date"], input[type="time"], input[type="number"] {
-  width: calc(100% - 22px);
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.hidden {
-  display: none;
-}
-
 /* Navigation Styles */
 .header .nav {
   display: flex;
