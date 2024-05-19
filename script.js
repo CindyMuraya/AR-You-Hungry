@@ -173,18 +173,17 @@ function search() {
     }
 
 
-
-    const { MongoClient, ServerApiVersion } = require('mongodb');
-    const uri = "mongodb+srv://cindymuraya:Nancy2k02@aryouhungry.2iezaag.mongodb.net/?retryWrites=true&w=majority&appName=ARYouHungry";
+const { MongoClient, ServerApiVersion } = require('mongodb');
+const uri = "mongodb+srv://cindymuraya:Nancy2k02@aryouhungry.2iezaag.mongodb.net/?retryWrites=true&w=majority&appName=ARYouHungry";
     
-    // Create a MongoClient with a MongoClientOptions object to set the Stable API version
-    const client = new MongoClient(uri, {
-      serverApi: {
-        version: ServerApiVersion.v1,
-        strict: true,
-        deprecationErrors: true,
-      }
-    });
+  // Create a MongoClient with a MongoClientOptions object to set the Stable API version
+  const client = new MongoClient(uri, {
+    serverApi: {
+      version: ServerApiVersion.v1,
+      strict: true,
+      deprecationErrors: true,
+    }
+  });
     
     async function run() {
       try {
@@ -198,5 +197,4 @@ function search() {
         await client.close();
       }
     }
-    run().catch(console.dir);
-    
+    run().catch(console.dir);    
