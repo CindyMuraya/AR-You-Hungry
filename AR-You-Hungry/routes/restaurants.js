@@ -17,9 +17,9 @@ router.get('/', async (req, res) => {
 // @route   POST /restaurants
 // @desc    Add a new restaurant
 router.post('/', async (req, res) => {
-    const { name, location, cuisine, rating } = req.body;
+    const { name, location, cuisine, rating, tables } = req.body;
     try {
-        let restaurant = new Restaurant({ name, location, cuisine, rating });
+        let restaurant = new Restaurant({ name, location, cuisine, rating, tables });
         await restaurant.save();
         res.json(restaurant);
     } catch (err) {
@@ -31,9 +31,19 @@ router.post('/', async (req, res) => {
 // @desc    Add a reservation
 router.post('/:id/reservations', async (req, res) => {
     const { name, date, time, partySize } = req.body;
+    const restaurantId = req.params.id;
+
     try {
-        let restaurant = await Restaurant.findById(req.params.id);
-        restaurant.reservations.push({ name, date, time, partySize });
+        const dateObj = new Date(date);
+
+        const available = await checkAvailability(restaurantId, dateObj, time);
+
+        if (!available) {
+            return res.status(400).json({ msg: 'No available tables at the requested time' });
+        }
+
+        let restaurant = await Restaurant.findById(restaurantId);
+        restaurant.reservations.push({ name, date: dateObj, time, partySize });
         await restaurant.save();
         res.json(restaurant);
     } catch (err) {
@@ -48,10 +58,10 @@ router.get('/search', async (req, res) => {
     try {
         let query = {};
         if (location) {
-            query.location = new RegExp(location, 'i'); // case-insensitive
+            query.location = new RegExp(location, 'i'); // case-insensitive search
         }
         if (cuisine) {
-            query.cuisine = new RegExp(cuisine, 'i'); // case-insensitive
+            query.cuisine = new RegExp(cuisine, 'i'); // case-insensitive search
         }
         const restaurants = await Restaurant.find(query);
         res.json(restaurants);
@@ -61,3 +71,14 @@ router.get('/search', async (req, res) => {
 });
 
 module.exports = router;
+
+// Helper function to check table availability (included from previous implementation)
+const checkAvailability = async (restaurantId, date, time) => {
+    const restaurant = await Restaurant.findById(restaurantId);
+    const reservationsAtTime = restaurant.reservations.filter(reservation =>
+        reservation.date.toISOString().split('T')[0] === date.toISOString().split('T')[0] &&
+        reservation.time === time
+    );
+
+    return reservationsAtTime.length < restaurant.tables;
+};

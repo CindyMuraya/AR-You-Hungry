@@ -15,6 +15,7 @@ const RestaurantSchema = new mongoose.Schema({
     location: { type: String, required: true },
     cuisine: { type: String, required: true },
     rating: { type: Number, required: true },
+    tables: { type: Number, required: true },
     reservations: [ReservationSchema]
 });
 
