@@ -1,6 +1,5 @@
 // Purpose: Connect to MongoDB using mongoose
 const mongoose = require('mongoose');
-
 const connectDB = async () => {
     try {
         await mongoose.connect('mongodb+srv://cindymuraya:Nancy2k02@aryouhungry.2iezaag.mongodb.net/?retryWrites=true&w=majority&appName=ARYouHungry', {

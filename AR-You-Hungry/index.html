@@ -14,12 +14,6 @@
 </head>
 
 <body>
-	<!-- #PRELOADER -->
-	<div class="preload" data-preaload>
-		<div class="circle"></div>
-		<p class="text">AR You Hungry?</p>
-	</div>
-
 	<!-- #HEADER -->
 	<header id="header">
 		<div class="header">
@@ -155,7 +149,6 @@
 	<div class="carousel">
 		<div class="carousel-content">
 			<!-- #RESTAURANT OPTIONS -->
-			<div id="restaurant-options" class="restaurant-options">
 			<div class="restaurant-option">
 				<div class="restaurant-option-image">
 					<img src="./Images/italian.jpg" alt="Italian Cuisine">
@@ -226,7 +219,8 @@
 					<button>Explore Now! <i class="fa-solid fa-arrow-alt-circle-right"></i></button>
 				</div>
 			</div>
-		</div>
+			<button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="next" onclick="moveSlide(1)">&#10095;</button>
 		</div>
 	</div>
 
