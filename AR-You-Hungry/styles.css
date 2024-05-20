@@ -1,12 +1,36 @@
 /* AR You Hungry Website Styles */
 
 /* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poetsen+One&family=Poppins:ital,wght@0,400;0,500;1,400&family=Satisfy&display=swap');
 .satisfy-regular {
 	font-family: "Satisfy", cursive;
 	font-weight: 400;
 	font-style: normal;
-  }
+}
+
+.poetsen-one-regular {
+  font-family: "Poetsen One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.poppins-medium {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.poppins-regular-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
 
 /* Global Styles */
 * {
@@ -28,20 +52,21 @@ body {
   background-color: blanchedalmond;
   color: #333333;
   -ms-overflow-style: none;
-  scrollbar-width: none;
 }
 
 /* Header Styles */
 .header{
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  justify-content: center;
   align-items: center;
   margin: auto;
   height: 50px;
-  width: 1140px;
-  max-width: 80%;
+  width: 1200;
+  max-width: 90%;
   position: relative;
-  z-index: 1000;
+  z-index: 100;
+  grid-template-columns: 50px 1fr 50px;
+  grid-template-rows: 50px;
 }
 
 .header .nav, .header .account{
@@ -50,6 +75,8 @@ body {
   align-items: center;
   position: relative;
   z-index: 1000;
+  width: 1200;
+  max-width: 90%;
 }
 
 .logo img{
@@ -245,8 +272,8 @@ i{
   color: #ccc;
 }
 
-/* Carousel Styles */
-.carousel{
+/* Slider Styles */
+.slider{
   width: 100vw;
   height: 100vh;
   overflow: hidden;
@@ -254,41 +281,115 @@ i{
   position: relative;
 }
 
-.carousel .carousel-content .restaurant-option{
+.slider .slides .option{
   position: absolute;
   inset: 0 0 0 0;
+  opacity: 0;
+  transition: 0.5s;
 }
 
-.carousel .carousel-content .restaurant-option img{
+.slider .slides .option img{
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.carousel .carousel-content .restaurant-option .restaurant-option-content{
+.slider .slides .option::after{
+  content: '';
+  width: 100%;
+  height: 100%;
+  left: 0;
+  bottom: 0;
+  position: absolute;
+  inset: 0 0 0 0;
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+}
+
+.slider .slides .option .content{
   position: absolute;
   top: 20%;
-  width: 1140px;
+  left: 10%;
+  width: 500px;
   max-width: 80%;
+  z-index: 1;
+}
+
+.slider .slides .option .content h2{
+  font-family: "Poetsen One", sans-serif;
+  font-size: 50px;
+  margin-bottom: 20px;
+  color: maroon;
+}
+
+.slider .slides .option .content p{
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 30px;
+  line-height: 1.5;
+  color: beige;
+}
+
+.slider .slides .option.active{
+  opacity: 1;
+  z-index: 2;
+}
+
+.slider .slides .option .content button{
+  cursor: pointer;
+  width: 130px;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: "Poesen One", sans-serif;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  color: darkred;
+  background-color: #eee5;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.slider .slides .option .content button:hover{
+  background-color:#ccc;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes showContent {
+  to{
+    transform: translateY(0);
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+.slider .slides .option.active .content{
+  transform: translateY(100px);
+  filter: blur(20px);
+  opacity: 0;
+  animation: showContent 0.5s 0.7s ease-in-out 1 forwards;
+}
+
+.slider .slides .option.active h2{
+  animation-delay: 1s;
+}
+
+.slider .slides .option.active p{
+  animation-delay: 1.7s;
+}
+
+.arrows{
+  position: absolute;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
-  padding-right: 30%;
-  box-sizing: border-box;
-  color: white;
+  transform: translate(-50%, -50%);
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  z-index: 3;
 }
-
-.carousel .carousel-content .restaurant-option .restaurant-option-content h1{
-  font-size: 10px;
-  margin-bottom: 20px;
-}
-
-.carousel .carousel-content .restaurant-option .restaurant-option-content p{
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-
-
 
 /* Main Content Styles */
 h1 {
@@ -300,7 +401,6 @@ h1 {
 
 h2{
   font-size: 32px;
-  color: #333333;
   text-align: center;
 }
   
@@ -320,8 +420,14 @@ button{
 	background-color:white;
 	border-radius: 5px;
 	border: 1px solid coral;
-	box-shadow: 0 10px 15px burlywood;
 	transition: all 0.35s;
+}
+
+button i{
+  margin-right: 10px;
+  margin-top: 10px;
+  color:#333;
+  font-size: 15px;
 }
 
 .home{
@@ -675,4 +781,5 @@ text-underline-offset: 7px;
 
 ::-webkit-scrollbar{
   display: none;
+  width: 0;
 }

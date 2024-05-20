@@ -14,8 +14,6 @@ app.use(bodyParser.json());
 // Define Routes
 app.use('/restaurants', require('./routes/restaurants'));
 
-// Serve static files
-app.use(express.static(path.join(__dirname, 'public')));
 
 const PORT = process.env.PORT || 5000;
 
