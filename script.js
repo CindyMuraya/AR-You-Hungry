@@ -51,6 +51,22 @@ cross.addEventListener('click', function(){
     headerbar.style.right = '-100%';
 });
 
+const options = document.querySelectorAll('.slider .option');
+const slides = document.querySelectorAll('.option');
+let currentIndex = 0;
+
+function changeSlide() {
+  slides[currentIndex].classList.remove('active');
+
+  currentIndex++;
+  if (currentIndex >= slides.length) {
+    currentIndex = 0;
+  }
+
+  slides[currentIndex].classList.add('active');
+}
+
+setInterval(changeSlide, 7000);
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -64,7 +80,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 document.addEventListener('DOMContentLoaded', function() {
   const searchInput = document.getElementById('searchinput');
-  const filterOptions = document.getElementById('filterOptions');
+  const filterOptions = document.getElementById('cuisineOptions');
   const restaurantList = document.getElementById('restaurant-list').getElementsByTagName('li');
 
   searchInput.addEventListener('keyup', filterRestaurants);
@@ -86,6 +102,118 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
+
+const apiUrl = 'http://localhost:5000';
+
+async function searchRestaurants() {
+    const location = document.getElementById('location-input').value;
+    const cuisine = document.getElementById('cuisineOptions').value;
+
+    let query = '';
+    if (location) query += `location=${location}&`;
+    if (cuisine) query += `cuisine=${cuisine}`;
+
+    const response = await fetch(`${apiUrl}/restaurants/search?${query}`);
+    const restaurants = await response.json();
+
+    displayResults(restaurants);
+}
+
+function displayResults(restaurants) {
+    const resultsDiv = document.getElementById('results');
+    resultsDiv.innerHTML = '';
+
+    restaurants.forEach(restaurant => {
+        const restaurantDiv = document.createElement('div');
+        restaurantDiv.classList.add('restaurant');
+        restaurantDiv.innerHTML = `
+            <h3>${restaurant.name}</h3>
+            <p>Location: ${restaurant.location}</p>
+            <p>Cuisine: ${restaurant.cuisine}</p>
+            <p>Rating: ${restaurant.rating}</p>
+            <button onclick="showReservationForm('${restaurant._id}')">Reserve</button>
+        `;
+        resultsDiv.appendChild(restaurantDiv);
+    });
+}
+
+function showReservationForm(restaurantId) {
+    document.getElementById('reservation-form').classList.remove('hidden');
+    document.getElementById('reservation').onsubmit = function(event) {
+        event.preventDefault();
+        makeReservation(restaurantId);
+    };
+}
+
+async function makeReservation(restaurantId) {
+    const name = document.getElementById('name').value;
+    const date = document.getElementById('date').value;
+    const time = document.getElementById('time').value;
+    const partySize = document.getElementById('partySize').value;
+
+    const reservation = { name, date, time, partySize };
+
+    const response = await fetch(`${apiUrl}/restaurants/${restaurantId}/reservations`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(reservation)
+    });
+
+    if (response.ok) {
+        alert('Reservation made successfully!');
+        document.getElementById('reservation-form').classList.add('hidden');
+        document.getElementById('reservation').reset();
+    } else {
+        const error = await response.json();
+        alert(`Error: ${error.msg}`);
+    }
+}
+
+const cuisines = [
+  { name: "Italian", image: "images/italian.jpg" },
+  { name: "Sushi", image: "images/chinese.jpg" },
+  { name: "Steakhouse", image: "images/mexican.jpg" },
+  { name: "BBQ", image: "images/indian.jpg" },
+  { name: "Indian", image: "images/japanese.jpg" },
+  { name: "Pizza", image: "images/japanese.jpg" },
+  { name: "Burger", image: "images/japanese.jpg" },
+  { name: "Chinese", image: "images/japanese.jpg" },
+  { name: "Mexican", image: "images/japanese.jpg" },
+];
+
+let currentSlide = 0;
+
+document.addEventListener("DOMContentLoaded", () => {
+  const slidesContainer = document.querySelector(".slides");
+  cuisines.forEach((cuisine, index) => {
+      const slide = document.createElement("div");
+      slide.className = "slide";
+      slide.innerHTML = `
+          <img src="${cuisine.image}" alt="${cuisine.name}">
+          <div class="slide-content">
+              <h2>${cuisine.name}</h2>
+              <a href="#" class="explore-button" onclick="exploreCuisine('${cuisine.name}')">Explore</a>
+          </div>
+      `;
+      slidesContainer.appendChild(slide);
+  });
+});
+
+function moveSlide(direction) {
+  const slidesContainer = document.querySelector(".slides");
+  const totalSlides = cuisines.length;
+  currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+  slidesContainer.style.transform = `translateX(${-currentSlide * 100}%)`;
+}
+
+function exploreCuisine(cuisine) {
+  // Redirect to the restaurants page with the cuisine as a query parameter
+  window.location.href = `restaurants.html?cuisine=${cuisine}`;
+}
+
+
 
 const form = document.getElementById('location-container');
 const locationInput = document.getElementById('location-input');

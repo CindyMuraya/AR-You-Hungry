@@ -14,12 +14,6 @@
 </head>
 
 <body>
-	<!-- #PRELOADER -->
-	<div class="preload" data-preaload>
-		<div class="circle"></div>
-		<p class="text">AR You Hungry?</p>
-	</div>
-
 	<!-- #HEADER -->
 	<header id="header">
 		<div class="header">
@@ -108,7 +102,7 @@
 					<div class="location-container">
 						<div class="location" id="locationinput2">
 								<input type="text" id="location-input" placeholder="Enter Your Location">
-								<i class="fa-solid fa-location-arrow locicon"></i>
+								<i class="fa-solid fa-location-arrow locicon" onclick="searchRestaurants()"></i>
 						</div>
 					</div>
 					<a href="#">
@@ -119,7 +113,7 @@
 					<div class="search-container">
 						<div class="search" id="searchinput2">
 							<input type="search" name="" id="searchinput" placeholder="Find a Restaurant..." onkeyup="search()">
-							<select id="filterOptions">
+							<select id="cuisineOptions">
 								<option value="all">All Cuisines</option>
 								<option value="Italian">Italian</option>
 								<option value="Sushi">Sushi</option>
@@ -129,16 +123,104 @@
 								<option value="Pizza">Pizza</option>
 								<option value="Burgers">Burgers</option>
 							</select>
-							<i class="fa-solid fa-magnifying-glass srchicon"></i>
+							<i class="fa-solid fa-magnifying-glass srchicon" onclick="searchRestaurants()"></i>
 						</div>
 					</div>
-					<a href="./login.html">
-						<i class="fa-solid fa-user" id="user-lap" name="userlogin"></i>
-					</a>
+					<div id="results"></div>
+					<div id="reservation-form" class="hidden">
+						<h2>Make a Reservation</h2>
+						<form id="reservation">
+							<input type="text" id="name" placeholder="Your Name" required>
+							<input type="date" id="date" required>
+							<input type="time" id="time" required>
+							<input type="number" id="partySize" placeholder="Party Size" required>
+							<button type="submit">Reserve</button>
+						</form>
+					</div>
 				</ul>
 			</div>
 		</div>
 	</header>
+
+	<!-- #SLIDER -->
+	<div class="slider">
+		<div class="slides">
+			<!-- #RESTAURANT OPTIONS -->
+			<div class="option active">
+					<img src="./Images/Italiano.jpg" alt="Pasta Bowl">
+				<div class="content">
+					<h2>Italian</h2>
+					<p>Experience the flavors of Italy with our authentic Italian cuisine.</p>
+					<button>Explore <i class="fa-solid fa-arrow-right"></i></button>
+				</div>
+			</div>
+			<div class="option">
+					<img src="./Images/Sushi.jpg" alt="Sushi">
+				<div class="content">
+					<h2>Sushi</h2>
+					<p>Indulge in the art of sushi with our fresh and flavorful sushi dishes.</p>
+					<button>Explore <i class="fa-solid fa-arrow-right"></i></button>
+				</div>
+			</div>
+			<div class="option">
+					<img src="./Images/Steakhouse.jpg" alt="Steakhouse">
+				<div class="content">
+					<h2>Steakhouse</h2>
+					<p>Savor the taste of premium steaks and grilled meats at our steakhouse.</p>
+					<button>Explore <i class="fa-solid fa-arrow-right"></i></button>
+				</div>
+			</div>
+			<div class="option">
+					<img src="./Images/bbq.jpg" alt="BBQ Meat">
+				<div class="content">
+					<h2>BBQ</h2>
+					<p>Enjoy the smoky flavors of barbecue with our delicious BBQ dishes.</p>
+					<button>Explore <i class="fa-solid fa-arrow-right"></i></button>
+				</div>
+			</div>
+			<div class="option">
+					<img src="./Images/Indian.jpg" alt="Rice & Curry">
+				<div class="content">
+					<h2>Indian</h2>
+					<p>Spice up your taste buds with our flavorful Indian dishes and curries.</p>
+					<button>Explore <i class="fa-solid fa-arrow-right"></i></button>
+				</div>
+			</div>
+			<div class="option">
+					<img src="./Images/Pizza.jpg" alt="Pizza">
+				<div class="content">
+					<h2>Pizza</h2>
+					<p>Delight in the cheesy goodness of our freshly baked pizzas and calzones.</p>
+					<button>Explore <i class="fa-solid fa-arrow-right"></i></button>
+				</div>
+			</div>
+			<div class="option">
+					<img src="./Images/Burger.jpg" alt="Burgers">
+				<div class="content">
+					<h2>Burgers</h2>
+					<p>Enjoy classic American burgers and fries at our burger joint.</p>
+					<button>Explore <i class="fa-solid fa-arrow-right"></i></button>
+				</div>
+			</div>
+			<div class="option">
+					<img src="./Images/Chinese.jpg" alt="Ramen Bowl">
+				<div class="content">
+					<h2>Chinese</h2>
+					<p>Fancy some ramen or dumplings? Come experience Chinese delicacies with us.</p>
+					<button>Explore <i class="fa-solid fa-arrow-right"></i></button>
+				</div>
+			</div>
+			<div class="option">
+					<img src="./Images/Mexican.jpg" alt="Tacos">
+				<div class="content">
+					<h2>Mexican</h2>
+					<p>Indulge in some Mexican food at our Mexican Restaurants.</p>
+					<button>Explore <i class="fa-solid fa-arrow-right"></i></button>
+				</div>
+			</div>
+		</div>
+	</div>
+
 
 	<!-- #HOME -->
 	<div class="home">
@@ -147,8 +229,6 @@
 			<div class="hero-content">
 				<h1 class="hero-title">Say Goodbye to <span>Boring Menus</span> and Hello to <span>a World Full of Flavor and Fun!</span></h1>
 				<p class="hero-text">Discover the best unique dining experiences with our delicious menu and convenient reservation system.</p>
-			
-				<button>Explore Now! <i class="fa-solid fa-arrow-alt-circle-right"></i></button>
 			</div>
 			<div class="hero-image">
 				<img src="./Images/feature.jpg" alt="AR You Hungry? - Hero Image">
