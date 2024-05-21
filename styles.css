@@ -571,77 +571,20 @@ button i{
 .footer {
   border-top: 2px solid burlywood;
   cursor: pointer;
-	text-align: center;
 }
 
-.footer .container{
-  display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(40rem,2fr));
-  grid-gap: 1rem;
-  padding: 4rem 0;
-  border-bottom: 1px solid burlywood;
-}
-
-.footer .container div{
-  padding: 0 7rem;
-}
-
-.footer img{
-  width: 70px;
-  height: 60px;
-  margin-top: 5px;
-}
-
-.footer .container p{
-  font-size: 18px;
-  color:#333333;
-  padding: 5px;
-	letter-spacing: .1rem;
-}
-
-.footer .container h3{
-  font-size: 25px;
-  padding: .5rem 0;
-}
-
-.footer .container span{
-	color: firebrick;
-	font-size: 28px;
-	font-weight: bold;
-}
-
-.footer .container input{
-	width: 70%;
-	font-size: 15px;
-	padding: 10px;
-	outline: none;
-	border: none;
-	background-color:floralwhite;
-}
-
-.footer .container button{
-	margin: 0 15px;
-	font-size: 13px;
-	box-shadow: none;
-	border-radius: 10px;
-  width: 90px;
-  height: 50px;
-}
-
-.footer .container button:hover{
-  background-color: coral;
-  color: whitesmoke;
-  box-shadow: 0 2px 15px darkorange;
+center p{
+  color: black;
 }
 
 .footer a{
-  color: black;
+  color: deeppink;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .footer a:hover {
-  color:deeppink;
+  color: pink;
 }
 
 /* RESPONSIVENESS */

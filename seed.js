@@ -17,10 +17,7 @@ const connectDB = async () => {
     }
 };
 
-const seedData = async () => {
-    await connectDB();
-
-    const sampleRestaurants = [
+const sampleRestaurants = [
         {
             name: "Italian Bistro",
             location: "New York",
@@ -207,14 +204,19 @@ const seedData = async () => {
         }
     ];
 
+async function run() {
     try {
-        await Restaurant.insertMany(sampleRestaurants);
-        console.log('Data seeded successfully');
-        mongoose.connection.close();
-    } catch (err) {
-        console.error(err);
-        mongoose.connection.close();
-    }
-};
+        await client.connect();
+        console.log("Connected correctly to server");
 
-seedData();
+        const database = client.db('ARYouHungry');
+        const collection = database.collection('restaurants');
+
+        const result = await collection.insertMany(sampleRestaurants);
+        console.log(`${result.insertedCount} documents were inserted`);
+    } finally {
+        await client.close();
+    }
+}
+
+run().catch(console.dir);

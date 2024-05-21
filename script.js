@@ -66,7 +66,7 @@ function changeSlide() {
   slides[currentIndex].classList.add('active');
 }
 
-setInterval(changeSlide, 7000);
+setInterval(changeSlide, 5000);
 
 options.forEach((option, index) => {
   option.addEventListener('click', () => {
@@ -77,7 +77,7 @@ options.forEach((option, index) => {
 });
 
 const cuisines = [
-  { name: "Italian", image: "images/italian.jpg" },
+  { name: "Italian", image: "./Images/Italiano.jpg" },
   { name: "Sushi", image: "images/chinese.jpg" },
   { name: "Steakhouse", image: "images/mexican.jpg" },
   { name: "BBQ", image: "images/indian.jpg" },

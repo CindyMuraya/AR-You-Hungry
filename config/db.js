@@ -1,12 +1,15 @@
 // Purpose: Connect to MongoDB using mongoose
 const mongoose = require('mongoose');
+const config = require('config');
+const db = config.get('mongoURI');
+
 const connectDB = async () => {
     try {
-        await mongoose.connect('mongodb+srv://cindymuraya:Nancy2k02@aryouhungry.2iezaag.mongodb.net/?retryWrites=true&w=majority&appName=ARYouHungry', {
+        await mongoose.connect(db, {
             useNewUrlParser: true,
             useUnifiedTopology: true
         });
-        console.log('MongoDB connected...');
+        console.log('MongoDB Connected...');
     } catch (err) {
         console.error(err.message);
         process.exit(1);

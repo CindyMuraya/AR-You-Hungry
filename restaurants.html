@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurants</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Restaurants</h1>
+        <div id="restaurants-list">
+            <ul>
+                <li class="Italian">
+                  <h2>Italiano's Trattoria</h2>
+                  <p>Authentic Italian cuisine in a cozy atmosphere.</p>
+                  <p>Location: 123 Main Street, Cityville</p>
+                  <p class="rating">Rating: 4.5/5</p>
+                </li>
+                <li class="BBQ">
+                  <h2>Spice &amp; Smoke BBQ</h2>
+                  <p>Delicious barbecue with a variety of smoked meats and flavorful spices.</p>
+                  <p>Location: 456 Oak Avenue, Townsville</p>
+                  <p class="rating">Rating: 4.8/5</p>
+                </li>
+                <li class="Sushi">
+                  <h2>Sushi Zen</h2>
+                  <p>Exquisite sushi and Japanese cuisine served with style.</p>
+                  <p>Location: 789 Pine Street, Villagetown</p>
+                  <p class="rating">Rating: 4.7/5</p>
+                </li>
+                <li class="Italian">
+                  <h2>La Trattoria</h2>
+                  <p>Italian Cuisine</p>
+                  <p>123 Main Street, Cityville</p>
+                  <p class="rating">Rating: 4.5/5</p>
+                </li>
+                <li class="Steakhouse">
+                  <h2>The Sizzling Grill</h2>
+                  <p>American Steakhouse</p>
+                  <p>456 Oak Avenue, Townsville</p>
+                  <p class="rating">Rating: 4.8/5</p>
+                </li>
+                <li class="Sushi">
+                  <h2>Sushi Paradise</h2>
+                  <p>Japanese Sushi Bar</p>
+                  <p>789 Maple Road, Villageton</p>
+                  <p class="rating">Rating: 4.2/5</p>
+                </li>
+                <li class="Indian">
+                  <h2>Curry Kingdom</h2>
+                  <p>Indian Cuisine</p>
+                  <p>101 Cedar Street, Spicetown</p>
+                  <p class="rating">Rating: 4.7/5</p>
+                </li>
+                <li class="Pizza">
+                  <h2>Mamma Mia Pizzeria</h2>
+                  <p>Italian Pizza</p>
+                  <p>210 Elm Street, Pizzaville</p>
+                  <p class="rating">Rating: 4.6/5</p>
+                </li>
+                <li class="Burger">
+                  <h2>Burger Barn</h2>
+                  <p>American Burger Joint</p>
+                  <p>315 Walnut Avenue, Burgertown</p>
+                  <p class="rating">Rating: 4.4/5</p>
+                </li>
+              </ul>
+        </div>
+    </div>
+    <script>
+        const apiUrl = 'http://localhost:5000';
+        document.addEventListener("DOMContentLoaded", async () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const cuisine = urlParams.get('cuisine');
+            const response = await fetch(`${apiUrl}/restaurants/search?cuisine=${cuisine}`);
+            const restaurants = await response.json();
+            displayRestaurants(restaurants);
+        });
+
+        function displayRestaurants(restaurants) {
+            const restaurantsList = document.getElementById('restaurants-list');
+            restaurantsList.innerHTML = '';
+            restaurants.forEach(restaurant => {
+                const restaurantDiv = document.createElement('div');
+                restaurantDiv.className = 'restaurant';
+                restaurantDiv.innerHTML = `
+                    <h3>${restaurant.name}</h3>
+                    <p>Location: ${restaurant.location}</p>
+                    <p>Rating: ${restaurant.rating}</p>
+                `;
+                restaurantsList.appendChild(restaurantDiv);
+            });
+        }
+    </script>
+</body>
+</html>

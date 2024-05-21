@@ -151,7 +151,7 @@
 				<div class="content">
 					<h2>Italian</h2>
 					<p>Experience the flavors of Italy with our authentic Italian cuisine.</p>
-					<button>Explore <i class="fa-solid fa-arrow-right"></i></button>
+					<button onclick="exploreCuisine('${cuisine.name}')">Explore <i class="fa-solid fa-arrow-right"></i></button>
 				</div>
 			</div>
 			<div class="option">
@@ -159,7 +159,7 @@
 				<div class="content">
 					<h2>Sushi</h2>
 					<p>Indulge in the art of sushi with our fresh and flavorful sushi dishes.</p>
-					<button>Explore <i class="fa-solid fa-arrow-right"></i></button>
+					<button onclick="exploreCuisine('${cuisine.name}')">Explore <i class="fa-solid fa-arrow-right"></i></button>
 				</div>
 			</div>
 			<div class="option">
@@ -167,7 +167,7 @@
 				<div class="content">
 					<h2>Steakhouse</h2>
 					<p>Savor the taste of premium steaks and grilled meats at our steakhouse.</p>
-					<button>Explore <i class="fa-solid fa-arrow-right"></i></button>
+					<button onclick="exploreCuisine('${cuisine.name}')">Explore <i class="fa-solid fa-arrow-right"></i></button>
 				</div>
 			</div>
 			<div class="option">
@@ -175,7 +175,7 @@
 				<div class="content">
 					<h2>BBQ</h2>
 					<p>Enjoy the smoky flavors of barbecue with our delicious BBQ dishes.</p>
-					<button>Explore <i class="fa-solid fa-arrow-right"></i></button>
+					<button onclick="exploreCuisine('${cuisine.name}')">Explore <i class="fa-solid fa-arrow-right"></i></button>
 				</div>
 			</div>
 			<div class="option">
@@ -183,7 +183,7 @@
 				<div class="content">
 					<h2>Indian</h2>
 					<p>Spice up your taste buds with our flavorful Indian dishes and curries.</p>
-					<button>Explore <i class="fa-solid fa-arrow-right"></i></button>
+					<button onclick="exploreCuisine('${cuisine.name}')">Explore <i class="fa-solid fa-arrow-right"></i></button>
 				</div>
 			</div>
 			<div class="option">
@@ -191,7 +191,7 @@
 				<div class="content">
 					<h2>Pizza</h2>
 					<p>Delight in the cheesy goodness of our freshly baked pizzas and calzones.</p>
-					<button>Explore <i class="fa-solid fa-arrow-right"></i></button>
+					<button onclick="exploreCuisine('${cuisine.name}')">Explore <i class="fa-solid fa-arrow-right"></i></button>
 				</div>
 			</div>
 			<div class="option">
@@ -199,7 +199,7 @@
 				<div class="content">
 					<h2>Burgers</h2>
 					<p>Enjoy classic American burgers and fries at our burger joint.</p>
-					<button>Explore <i class="fa-solid fa-arrow-right"></i></button>
+					<button onclick="exploreCuisine('${cuisine.name}')">Explore <i class="fa-solid fa-arrow-right"></i></button>
 				</div>
 			</div>
 			<div class="option">
@@ -207,7 +207,7 @@
 				<div class="content">
 					<h2>Chinese</h2>
 					<p>Fancy some ramen or dumplings? Come experience Chinese delicacies with us.</p>
-					<button>Explore <i class="fa-solid fa-arrow-right"></i></button>
+					<button onclick="exploreCuisine('${cuisine.name}')">Explore <i class="fa-solid fa-arrow-right"></i></button>
 				</div>
 			</div>
 			<div class="option">
@@ -215,7 +215,7 @@
 				<div class="content">
 					<h2>Mexican</h2>
 					<p>Indulge in some Mexican food at our Mexican Restaurants.</p>
-					<button>Explore <i class="fa-solid fa-arrow-right"></i></button>
+					<button onclick="exploreCuisine('${cuisine.name}')">Explore <i class="fa-solid fa-arrow-right"></i></button>
 				</div>
 			</div>
 		</div>
@@ -342,28 +342,9 @@
 
 	<!-- #FOOTER -->
 	<section class="footer">
-		<img src="Images/favicon.svg" alt="AR You Hungry? logo">
-
-		<div class="container">
-			<!-- #Join Us -->
-			<div class="join">
-				<h3>Join the Ar You Hungry? family</h3>
-				<p>Indulge, explore, and discover with AR You Hungry?
-				<br>where every bite tells a story and every reservation is an adventure!</p>
-				<button>Join Us!</button>
-			</div>
-
-			<!-- #NEWSLETTER-->
-			<div class="newsletter">
-				<h3>Subscribe to <span>Our Newsletter: </span></h3>
-				<input id="newsletterinput" type="email" placeholder="Enter your email..." />
-				<button type="submit">Subscribe</button>
-			</div>
-		</div>
-		
-				<center>
-					&copy; <p>&copy; 2024 <a href="./index.html">AR You Hungry?</a> All rights reserved.</p>
-				</center>
+		<center>
+			&copy; <p> 2024 <a href="./index.html">AR You Hungry?</a> All rights reserved.</p>
+		</center>
 	</section>
 
 	<script src="./script.js"></script>
