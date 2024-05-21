@@ -68,6 +68,31 @@ function changeSlide() {
 
 setInterval(changeSlide, 7000);
 
+options.forEach((option, index) => {
+  option.addEventListener('click', () => {
+    slides[currentIndex].classList.remove('active');
+    currentIndex = index;
+    slides[currentIndex].classList.add('active');
+  });
+});
+
+const cuisines = [
+  { name: "Italian", image: "images/italian.jpg" },
+  { name: "Sushi", image: "images/chinese.jpg" },
+  { name: "Steakhouse", image: "images/mexican.jpg" },
+  { name: "BBQ", image: "images/indian.jpg" },
+  { name: "Indian", image: "images/japanese.jpg" },
+  { name: "Pizza", image: "images/japanese.jpg" },
+  { name: "Burger", image: "images/japanese.jpg" },
+  { name: "Chinese", image: "images/japanese.jpg" },
+  { name: "Mexican", image: "images/japanese.jpg" },
+];
+
+function exploreCuisine(cuisine) {
+  // Redirect to the restaurants page with the cuisine as a query parameter
+  window.location.href = `restaurants.html?cuisine=${cuisine}`;
+}
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -170,50 +195,6 @@ async function makeReservation(restaurantId) {
         alert(`Error: ${error.msg}`);
     }
 }
-
-const cuisines = [
-  { name: "Italian", image: "images/italian.jpg" },
-  { name: "Sushi", image: "images/chinese.jpg" },
-  { name: "Steakhouse", image: "images/mexican.jpg" },
-  { name: "BBQ", image: "images/indian.jpg" },
-  { name: "Indian", image: "images/japanese.jpg" },
-  { name: "Pizza", image: "images/japanese.jpg" },
-  { name: "Burger", image: "images/japanese.jpg" },
-  { name: "Chinese", image: "images/japanese.jpg" },
-  { name: "Mexican", image: "images/japanese.jpg" },
-];
-
-let currentSlide = 0;
-
-document.addEventListener("DOMContentLoaded", () => {
-  const slidesContainer = document.querySelector(".slides");
-  cuisines.forEach((cuisine, index) => {
-      const slide = document.createElement("div");
-      slide.className = "slide";
-      slide.innerHTML = `
-          <img src="${cuisine.image}" alt="${cuisine.name}">
-          <div class="slide-content">
-              <h2>${cuisine.name}</h2>
-              <a href="#" class="explore-button" onclick="exploreCuisine('${cuisine.name}')">Explore</a>
-          </div>
-      `;
-      slidesContainer.appendChild(slide);
-  });
-});
-
-function moveSlide(direction) {
-  const slidesContainer = document.querySelector(".slides");
-  const totalSlides = cuisines.length;
-  currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
-  slidesContainer.style.transform = `translateX(${-currentSlide * 100}%)`;
-}
-
-function exploreCuisine(cuisine) {
-  // Redirect to the restaurants page with the cuisine as a query parameter
-  window.location.href = `restaurants.html?cuisine=${cuisine}`;
-}
-
-
 
 const form = document.getElementById('location-container');
 const locationInput = document.getElementById('location-input');
