@@ -97,6 +97,66 @@ function exploreCuisine(cuisine) {
   window.location.href = `restaurants.html?cuisine=${encodeURIComponent(cuisine)}`;
 }
 
+function makeReservation(restaurantName) {
+  const reservationForm = document.createElement('div');
+  reservationForm.innerHTML = `
+      <h2>Make a Reservation at ${restaurantName}</h2>
+      <form id="reservation-form">
+          <input type="hidden" name="restaurantName" value="${restaurantName}">
+          <label for="customerName">Name:</label>
+          <input type="text" id="customerName" name="customerName" required><br>
+          <label for="date">Date:</label>
+          <input type="date" id="date" name="date" required><br>
+          <label for="time">Time:</label>
+          <input type="time" id="time" name="time" required><br>
+          <label for="numberOfPeople">Number of People:</label>
+          <input type="number" id="numberOfPeople" name="numberOfPeople" required><br>
+          <button type="submit">Reserve</button>
+      </form>
+      <button onclick="closeForm()">Cancel</button>
+  `;
+  document.body.appendChild(reservationForm);
+
+  document.getElementById('reservation-form').addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const formData = new FormData(event.target);
+      const reservationData = {
+          restaurantName: formData.get('restaurantName'),
+          customerName: formData.get('customerName'),
+          date: formData.get('date'),
+          time: formData.get('time'),
+          numberOfPeople: formData.get('numberOfPeople')
+      };
+
+      try {
+          const response = await fetch('http://localhost:5000/reservations', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(reservationData)
+          });
+
+          if (response.ok) {
+              alert('Reservation made successfully!');
+              closeForm();
+          } else {
+              alert('Failed to make reservation. Please try again.');
+          }
+      } catch (err) {
+          console.error('Error making reservation:', err);
+          alert('Error making reservation. Please try again.');
+      }
+  });
+}
+
+function closeForm() {
+  const form = document.querySelector('div');
+  if (form) {
+      document.body.removeChild(form);
+  }
+}
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();

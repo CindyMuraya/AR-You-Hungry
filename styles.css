@@ -453,11 +453,11 @@ button i{
 .restaurant_options{
   margin: 25px 0;
   padding: 20px 0;
-  background-color:ivory;
+  background-color: ivory;
   border-radius: 30px;
   display: flex;
   justify-content: space-around;
-  flex-wrap: wrap;
+  
 }
 
 .options{
@@ -497,6 +497,61 @@ button i{
 .options button{
 	width: 120px;
 	line-height: 35px;
+}
+
+/* Restaurants page styles */
+#restaurants-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.restaurant-card {
+  flex: 1 1 calc(33.333% - 40px);
+  background: ivory;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
+  padding: 10px;
+  box-sizing: border-box;
+  transition: transform 0.3s ease;
+}
+
+.restaurant-card:hover{
+  transform: scale(1.1);
+}
+
+.restaurant-card img {
+  width: 80%;
+	height: 200px;
+  object-fit: cover;
+  margin: 10px auto;
+  display: block
+}
+
+.restaurant-card h3 {
+  margin: 10px 0;
+}
+
+.restaurant-card button {
+  width: 160px;
+	line-height: 35px;
+  padding: 10px 20px;
+  font-size: 16px;
+  letter-spacing: 1px;
+  border: none;
+  border-radius: 10px;
+  background-color:darkred;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.restaurant-card button:hover {
+  background-color: #218838;
 }
 
 /* Featured Restaurants Styles */

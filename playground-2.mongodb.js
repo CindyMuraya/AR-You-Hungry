@@ -1,46 +1,13 @@
-// Path: /mongodb/queries.js
+// Path: /mongodb/create_database_collections_insert_data.js
+// MongoDB shell script to create a database, collections, and insert data. 
+const database = 'ARYouHungry';
+const collection = 'restaurants';
 
 // The current database to use.
 use(database);
 
 // Create a new collection.
-db.createCollection(restaurants);
-
-// The prototype form to create a collection:
-/* db.createCollection( <name>,
-  {
-    capped: <boolean>,
-    autoIndexId: <boolean>,
-    size: <number>,
-    max: <number>,
-    storageEngine: <document>,
-    validator: <document>,
-    validationLevel: <string>,
-    validationAction: <string>,
-    indexOptionDefaults: <document>,
-    viewOn: <string>,
-    pipeline: <pipeline>,
-    collation: <document>,
-    writeConcern: <document>,
-    timeseries: { // Added in MongoDB 5.0
-      timeField: <string>, // required for time series collections
-      metaField: <string>,
-      granularity: <string>,
-      bucketMaxSpanSeconds: <number>, // Added in MongoDB 6.3
-      bucketRoundingSeconds: <number>, // Added in MongoDB 6.3
-    },
-    expireAfterSeconds: <number>,
-    clusteredIndex: <document>, // Added in MongoDB 5.3
-  }
-)*/
-
-// More information on the `createCollection` command can be found at:
-// https://www.mongodb.com/docs/manual/reference/method/db.createCollection/
-// Switch to the database.
-use ('ARYouHungry')
-
-// Create a new collection named "restaurants"
-db.createCollection("restaurants")
+db.createCollection(collection);
 
 // Insert the restaurant data into the restaurants collection.
 db.restaurants.insertMany([
@@ -230,94 +197,253 @@ db.restaurants.insertMany([
     }
 ]);
 
-// Create indexes on the fields to improve query performance.
-db.restaurants.createIndex({ name: 1 });
-db.restaurants.createIndex({ location: 1 });
-db.restaurants.createIndex({ cuisine: 1 });
+// Verify that the data was inserted successfully.
+db.restaurants.find().pretty()
 
-// Create an index on the "rating" field to improve query performance.
-db.restaurants.createIndex({ rating: 1 });
+// Create a new collection named "reservations"
+db.createCollection("reservations")
 
-// Create an index on the "tables" field to improve query performance.
-db.restaurants.createIndex({ tables: 1 });
+// Insert the reservation data into the reservations collection.
+db.reservations.insertMany([
+    {
+        name: "John Doe",
+        email: " [email protected]",
+        phone: "123-456-7890",
+        partySize: 4,
+        date: "2021-07-15",
+        time: "18:00",
+        restaurant: "Italian Bistro"
+    },
+    {
+        name: "Jane Smith",
+        email: " [email protected]",
+        phone: "987-654-3210",
+        partySize: 2,
+        date: "2021-07-16",
+        time: "19:30",
+        restaurant: "Szechuan Delight"
+    },
+    {
+        name: "Alice Johnson",
+        email: " [email protected]",
+        phone: "555-123-4567",
+        partySize: 6,
+        date: "2021-07-17",
+        time: "20:00",
+        restaurant: "Taco Palace"
+    },
+    {
+        name: "Bob Brown",
+        email: " [email protected]",
+        phone: "111-222-3333",
+        partySize: 3,
+        date: "2021-07-18",
+        time: "17:30",
+        restaurant: "Sushi World"
+    },
+    {
+        name: "Sarah Lee",
+        email: " [email protected]",
+        phone: "777-888-9999",
+        partySize: 5,
+        date: "2021-07-19",
+        time: "18:30",
+        restaurant: "La Trattoria"
+    },
+    {
+        name: "Mike Davis",
+        email: " [email protected]",
+        phone: "444-555-6666",
+        partySize: 8,
+        date: "2021-07-20",
+        time: "19:00",
+        restaurant: "The Sizzling Grill"
+    },
+    {
+        name: "Emily White",
+        email: " [email protected]",
+        phone: "999-888-7777",
+        partySize: 4,
+        date: "2021-07-21",
+        time: "20:30",
+        restaurant: "Sushi Paradise"
+    },
+    {
+        name: "Chris Green",
+        email: " [email protected]",
+        phone: "666-777-8888",
+        partySize: 3,
+        date: "2021-07-22",
+        time: "17:00",
+        restaurant: "Curry Kingdom"
+    },
+    {
+        name: "Laura Black",
+        email: " [email protected]",
+        phone: "222-333-4444",
+        partySize: 2,
+        date: "2021-07-23",
+        time: "18:00",
+        restaurant: "Mamma Mia Pizzeria"
+    },
+    {
+        name: "Tom Grey",
+        email: " [email protected]",
+        phone: "888-999-0000",
+        partySize: 6,
+        date: "2021-07-24",
+        time: "19:30",
+        restaurant: "Burger Barn"
+    }
+]);
 
-// Create an index on the "reservations" field to improve query performance.
-db.restaurants.createIndex({ reservations: 1 });
+// Verify that the data was inserted successfully.
+db.reservations.find().pretty()
 
-// Create a compound index on the "location" and "cuisine" fields to improve query performance.
-db.restaurants.createIndex({ location: 1, cuisine: 1 });
+// Create a new collection named "users"
+db.createCollection("users")
 
-// Create a compound index on the "location" and "rating" fields to improve query performance.
-db.restaurants.createIndex({ location: 1, rating: 1 });
+// Insert the user data into the users collection.
 
-// Create a compound index on the "cuisine" and "rating" fields to improve query performance.
-db.restaurants.createIndex({ cuisine: 1, rating: 1 });
+db.users.insertMany([
+    {
+        name: "Admin User",
+        email: " [email protected]",
+        password: "admin123"
+    },
+    {
+        name: "John Doe",
+        email: " [email protected]",
+        password: "john123"
+    },
+    {
+        name: "Jane Smith",
+        email: " [email protected]",
+        password: "jane123"
+    },
+    {
+        name: "Alice Johnson",
+        email: " [email protected]",
+        password: "alice123"
+    },
+    {
+        name: "Bob Brown",
+        email: " [email protected]",
+        password: "bob123"
+    },
+    {
+        name: "Sarah Lee",
+        email: " [email protected]",
+        password: "sarah123"
+    },
+    {
+        name: "Mike Davis",
+        email: " [email protected]",
+        password: "mike123"
+    },
+    {
+        name: "Emily White",
+        email: " [email protected]",
+        password: "emily123"
+    },
+    {
+        name: "Chris Green",
+        email: " [email protected]",
+        password: "chris123"
+    },
+    {
+        name: "Laura Black",
+        email: " [email protected]",
+        password: "laura123"
+    },
+    {
+        name: "Tom Grey",
+        email: " [email protected]",
+        password: "tom123"
+    }
+]);
 
-// Create a compound index on the "cuisine" and "tables" fields to improve query performance.
-db.restaurants.createIndex({ cuisine: 1, tables: 1 });
+// Verify that the data was inserted successfully.
+db.users.find().pretty()
 
-// Create a compound index on the "rating" and "tables" fields to improve query performance.
-db.restaurants.createIndex({ rating: 1, tables: 1 });
+// Create a new collection named "reviews"
+db.createCollection("reviews")
 
-// Create a compound index on the "tables" and "reservations" fields to improve query performance.
-db.restaurants.createIndex({ tables: 1, reservations: 1 });
+// Insert the review data into the reviews collection.
+db.reviews.insertMany([
+    {
+        name: "John Doe",
+        email: " [email protected]",
+        rating: 4.5,
+        comment: "Great food and service!",
+        restaurant: "Italian Bistro"
+    },
+    {
+        name: "Jane Smith",
+        email: " [email protected]",
+        rating: 4.3,
+        comment: "Delicious BBQ!",
+        restaurant: "Spice &amp; Smoke BBQ"
+    },
+    {
+        name: "Alice Johnson",
+        email: " [email protected]",
+        rating: 4.7,
+        comment: "Authentic Chinese cuisine!",
+        restaurant: "Szechuan Delight"
+    },
+    {
+        name: "Bob Brown",
+        email: " [email protected]",
+        rating: 4.3,
+        comment: "Best tacos in town!",
+        restaurant: "Taco Palace"
+    },
+    {
+        name: "Sarah Lee",
+        email: " [email protected]",
+        rating: 4.6,
+        comment: "Amazing Indian food!",
+        restaurant: "Spice Haven"
+    },
+    {
+        name: "Mike Davis",
+        email: " [email protected]",
+        rating: 4.8,
+        comment: "Fresh and delicious sushi!",
+        restaurant: "Sushi World"
+    },
+    {
+        name: "Emily White",
+        email: " [email protected]",
+        rating: 4.5,
+        comment: "Great sushi selection!",
+        restaurant: "Sushi Zen"
+    },
+    {
+        name: "Chris Green",
+        email: " [email protected]",
+        rating: 4.8,
+        comment: "Authentic Italian cuisine!",
+        restaurant: "La Trattoria"
+    },
+    {
+        name: "Laura Black",
+        email: " [email protected]",
+        rating: 4.7,
+        comment: "Juicy steaks and great service!",
+        restaurant: "The Sizzling Grill"
+    },
+    {
+        name: "Tom Grey",
+        email: " [email protected]",
+        rating: 4.7,
+        comment: "Best sushi in town!",
+        restaurant: "Sushi Paradise"
+    }
+]);
 
-// Create a compound index on the "location", "cuisine", and "rating" fields to improve query performance.
-db.restaurants.createIndex({ location: 1, cuisine: 1, rating: 1 });
+// Verify that the data was inserted successfully.
+db.reviews.find().pretty()
 
-// Create a compound index on the "cuisine", "rating", and "tables" fields to improve query performance.
-db.restaurants.createIndex({ cuisine: 1, rating: 1, tables: 1 });
-
-// Create a compound index on the "rating", "tables", and "reservations" fields to improve query performance.
-db.restaurants.createIndex({ rating: 1, tables: 1, reservations: 1 });
-
-// Create a compound index on the "location", "cuisine", "rating", and "tables" fields to improve query performance.
-db.restaurants.createIndex({ location: 1, cuisine: 1, rating: 1, tables: 1 });
-
-// Create a compound index on the "cuisine", "rating", "tables", and "reservations" fields to improve query performance.
-db.restaurants.createIndex({ cuisine: 1, rating: 1, tables: 1, reservations: 1 });
-
-// Create a compound index on the "location", "cuisine", "rating", "tables", and "reservations" fields to improve query performance.
-db.restaurants.createIndex({ location: 1, cuisine: 1, rating: 1, tables: 1, reservations: 1 });
-
-// Query the restaurants collection to find all Italian restaurants in New York with a rating of 4.5 or higher.
-db.restaurants.find({ cuisine: "Italian", location: "New York", rating: { $gte: 4.5 } });
-
-// Query the restaurants collection to find all BBQ restaurants in Seattle with a rating of 4.3 or higher.
-db.restaurants.find({ cuisine: "BBQ", location: "Seattle", rating: { $gte: 4.3 } });
-
-// Query the restaurants collection to find all Chinese restaurants in San Francisco with a rating of 4.7 or higher.
-db.restaurants.find({ cuisine: "Chinese", location: "San Francisco", rating: { $gte: 4.7 } });
-
-// Query the restaurants collection to find all Mexican restaurants in Austin with a rating of 4.3 or higher.
-db.restaurants.find({ cuisine: "Mexican", location: "Austin", rating: { $gte: 4.3 } });
-
-// Query the restaurants collection to find all Indian restaurants in Chicago with a rating of 4.6 or higher.
-db.restaurants.find({ cuisine: "Indian", location: "Chicago", rating: { $gte: 4.6 } });
-
-// Query the restaurants collection to find all Sushi restaurants in Los Angeles with a rating of 4.8 or higher.
-db.restaurants.find({ cuisine: "Sushi", location: "Los Angeles", rating: { $gte: 4.8 } });
-
-// Query the restaurants collection to find all Sushi restaurants in Vancouver with a rating of 4.5 or higher.
-db.restaurants.find({ cuisine: "Sushi", location: "Vancouver", rating: { $gte: 4.5 } });
-
-// Query the restaurants collection to find all Italian restaurants in Hollywood with a rating of 4.8 or higher.
-db.restaurants.find({ cuisine: "Italian", location: "Hollywood", rating: { $gte: 4.8 } });
-
-// Query the restaurants collection to find all Steakhouse restaurants in Texas with a rating of 4.7 or higher.
-db.restaurants.find({ cuisine: "Steakhouse", location: "Texas", rating: { $gte: 4.7 } });
-
-// Query the restaurants collection to find all Sushi restaurants in California with a rating of 4.7 or higher.
-db.restaurants.find({ cuisine: "Sushi", location: "California", rating: { $gte: 4.7 } });
-
-// Query the restaurants collection to find all Indian restaurants in New York with a rating of 4.8 or higher.
-db.restaurants.find({ cuisine: "Indian", location: "New York", rating: { $gte: 4.8 } });
-
-// Query the restaurants collection to find all Pizza restaurants in Texas with a rating of 4.4 or higher.
-db.restaurants.find({ cuisine: "Pizza", location: "Texas", rating: { $gte: 4.4 } });
-
-// Query the restaurants collection to find all Burger restaurants in Texas with a rating of 4.7 or higher.
-db.restaurants.find({ cuisine: "Burger", location: "Texas", rating: { $gte: 4.7 } });
-
-// Query the restaurants collection to find all Pizza restaurants in New Orleans with a rating of 4.9 or higher.
-db.restaurants.find({ cuisine: "Pizza", location: "New Orleans", rating: { $gte: 4.9 } });
+// Exit the MongoDB shell.
