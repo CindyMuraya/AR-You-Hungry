@@ -245,12 +245,12 @@ input[type="text"], input[type="date"], input[type="time"], input[type="number"]
   font-family: 'Satisfy', cursive;
   margin: 0 10px;
   padding: 8px 15px;
-  color:blanchedalmond;
+  color:maroon;
   transition: color 0.3s ease;
 }
 
 .nav a:hover {
-  color: coral;
+  color: white;
 }
 
 .nav ul{
@@ -269,7 +269,7 @@ input[type="text"], input[type="date"], input[type="time"], input[type="number"]
 i{
   font-size: 25px;
   cursor: pointer;
-  color: #ccc;
+  color:blue;
 }
 
 /* Slider Styles */
@@ -448,56 +448,6 @@ button i{
   text-underline-offset: 10px;
   text-decoration-color: gold;
 }
-  
-/* Popular Restaurants Styles */
-.restaurant_options{
-  margin: 25px 0;
-  padding: 20px 0;
-  background-color: ivory;
-  border-radius: 30px;
-  display: flex;
-  justify-content: space-around;
-  
-}
-
-.options{
-  width: 250px;
-  padding: 30px;
-  text-align: center;
-  transition: transform 0.3s ease;
-  background-color: blanchedalmond;
-}
-
-.options:hover{
-  transform: scale(1.1);
-}
-
-.options div{
-	height: 100px;
-}
-
-.options img{
-	width: 160px;
-	margin-bottom: 15px;
-}
-
-.options p{
-	font-size: 20px;
-	margin-top: 25px;
-	margin-bottom: 10px;
-}
-
-.options button:hover{
-  background-color: coral;
-  color: whitesmoke;
-  box-shadow: 0 2px 15px orange;
-  border: 1px solid darkorange;
-}
-
-.options button{
-	width: 120px;
-	line-height: 35px;
-}
 
 /* Restaurants page styles */
 #restaurants-list {
@@ -554,43 +504,43 @@ button i{
   background-color: #218838;
 }
 
-/* Featured Restaurants Styles */
-.restaurants-list{
-  margin: 45px 0;
-  padding: 30px 0;
-  border-radius: 30px;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  columns: 2;
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+  padding-top: 60px;
 }
 
-.restaurants-list ul {
-  list-style-type: none;
-  text-align: center;
-  columns: 2;
-}
-
-.restaurants-list li {
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin: 10px 0;
+.modal-content {
+  background-color:bisque;
+  margin: 5% auto;
   padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 10px;
 }
 
-.restaurants-list h2 {
-  margin-top: 0;
-  color: #333;
-}
-
-.restaurants-list p {
-  margin: 5px 0;
-  color: #666;
-}
-
-.restaurants-list p.rating {
+.close-button {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
   font-weight: bold;
-  color: chocolate;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: red;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 /* Footer Styles */

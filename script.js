@@ -80,13 +80,6 @@ document.getElementById('discover').addEventListener('click', function() {
   window.location.href = 'restaurants.html';
 });
 
-document.querySelectorAll('.explore').forEach(button => {
-  button.addEventListener('click', function() {
-      const cuisine = this.getAttribute('data-cuisine');
-      window.location.href = `${cuisine}.html`;
-  });
-});
-
 const cuisines = [All, Italian, Sushi, Steak, BBQ, Indian, Pizza, Burger, Chinese, Mexican];
 
 function discoverAll() {
@@ -95,66 +88,6 @@ function discoverAll() {
 
 function exploreCuisine(cuisine) {
   window.location.href = `restaurants.html?cuisine=${encodeURIComponent(cuisine)}`;
-}
-
-function makeReservation(restaurantName) {
-  const reservationForm = document.createElement('div');
-  reservationForm.innerHTML = `
-      <h2>Make a Reservation at ${restaurantName}</h2>
-      <form id="reservation-form">
-          <input type="hidden" name="restaurantName" value="${restaurantName}">
-          <label for="customerName">Name:</label>
-          <input type="text" id="customerName" name="customerName" required><br>
-          <label for="date">Date:</label>
-          <input type="date" id="date" name="date" required><br>
-          <label for="time">Time:</label>
-          <input type="time" id="time" name="time" required><br>
-          <label for="numberOfPeople">Number of People:</label>
-          <input type="number" id="numberOfPeople" name="numberOfPeople" required><br>
-          <button type="submit">Reserve</button>
-      </form>
-      <button onclick="closeForm()">Cancel</button>
-  `;
-  document.body.appendChild(reservationForm);
-
-  document.getElementById('reservation-form').addEventListener('submit', async (event) => {
-      event.preventDefault();
-      const formData = new FormData(event.target);
-      const reservationData = {
-          restaurantName: formData.get('restaurantName'),
-          customerName: formData.get('customerName'),
-          date: formData.get('date'),
-          time: formData.get('time'),
-          numberOfPeople: formData.get('numberOfPeople')
-      };
-
-      try {
-          const response = await fetch('http://localhost:5000/reservations', {
-              method: 'POST',
-              headers: {
-                  'Content-Type': 'application/json'
-              },
-              body: JSON.stringify(reservationData)
-          });
-
-          if (response.ok) {
-              alert('Reservation made successfully!');
-              closeForm();
-          } else {
-              alert('Failed to make reservation. Please try again.');
-          }
-      } catch (err) {
-          console.error('Error making reservation:', err);
-          alert('Error making reservation. Please try again.');
-      }
-  });
-}
-
-function closeForm() {
-  const form = document.querySelector('div');
-  if (form) {
-      document.body.removeChild(form);
-  }
 }
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -166,6 +99,54 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         });
     });
 });
+
+// Get all the images
+const images = document.querySelectorAll('img');
+
+// Create an Intersection Observer instance
+const observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      // Load the actual image
+      loadActualImage(entry.target);
+      
+      // Stop observing the image
+      observer.unobserve(entry.target);
+    }
+  });
+});
+
+// Start observing each image
+images.forEach((image) => {
+  observer.observe(image);
+});
+
+// Function to load the actual image
+function loadActualImage(image) {
+  const src = image.dataset.src;
+  
+  // Set the source attribute to load the image
+  image.setAttribute('src', src);
+}
+
+// Function to set caching headers for images
+function setCacheHeadersForImages() {
+  // Get all the images on the page
+  const images = document.getElementsByTagName('img');
+
+  // Loop through each image and set caching headers
+  for (const image of images) {
+    // Check if the image source is present in the list of image URLs
+    if (imageUrls.includes(image.src)) {
+      // Set caching headers
+      image.setAttribute('loading', 'lazy');
+      image.setAttribute('decoding', 'async');
+    }
+  }
+}
+
+// Call the function to set caching headers
+setCacheHeadersForImages();
 
 document.addEventListener('DOMContentLoaded', function() {
   const searchInput = document.getElementById('searchinput');
@@ -191,32 +172,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
-
-document.addEventListener("DOMContentLoaded", async () => {
-  const urlParams = new URLSearchParams(window.location.search);
-  const cuisine = urlParams.get('cuisine');
-  const response = await fetch(`${apiUrl}/restaurants/search?cuisine=${cuisine}`);
-  const restaurants = await response.json();
-  displayRestaurants(restaurants);
-});
-
-function displayRestaurants(restaurants) {
-  const restaurantsList = document.getElementById('restaurants-list');
-  restaurantsList.innerHTML = '';
-  restaurants.forEach(restaurant => {
-    const restaurantDiv = document.createElement('div');
-    restaurantDiv.className = 'restaurant';
-    restaurantDiv.innerHTML = `
-      <h3>${restaurant.name}</h3>
-      <p>Location: ${restaurant.location}</p>
-      <p>Rating: ${restaurant.rating}</p>
-    `;
-
-    restaurantsList.appendChild(restaurantDiv);
-  });
-}
-
-const apiUrl = 'http://localhost:5000';
 
 async function searchRestaurants() {
     const location = document.getElementById('location-input').value;
@@ -350,21 +305,3 @@ function showMap(restaurants, location) {
   });
 }
 
-
-function search() {
-    var searchQuery = document.getElementById("searchInput").value;
-    let filter = document.getElementById('search').value.toUpperCase();
-    let item = document.querySelectorAll('.product');
-    let l = document.getElementsByTagName('h3');
-    for(var i = 0;i<=l.length;i++){
-    let a=item[i].getElementsByTagName('h3')[0];
-    let value=a.innerHTML || a.innerText || a.textContent;
-    if(value.toUpperCase().indexOf(filter) > -1) {
-    item[i].style.display="";
-    }
-    else
-    {
-    item[i].style.display="none";
-    }
-    }
-    }

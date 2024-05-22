@@ -3,7 +3,7 @@ const router = express.Router();
 const Reservation = require('../models/Reservation');
 
 // Create a new reservation
-router.post('/', async (req, res) => {
+router.post('/reserve', async (req, res) => {
   const { restaurantName, customerName, date, time, numberOfPeople } = req.body;
 
   const newReservation = new Reservation({
