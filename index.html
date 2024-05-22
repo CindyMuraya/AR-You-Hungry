@@ -145,45 +145,54 @@
 	<!-- #SLIDER -->
 	<div class="slider">
 		<div class="slides">
+			<!-- #HERO -->
+			<div class="option active" data-cuisine="All">
+				<img src="./Images/Italian.jpg" alt="AR You Hungry? - Hero Image">
+			<div class="content">
+				<h1 class="hero-title">Say Goodbye to <span>Boring Menus</span> and Hello to <span>a World Full of Flavor and Fun!</span></h1>
+				<p>Discover the best and unique dining experiences with our amazing restaurants and convenient reservation system.</p>
+				<button id="discover"  class="discover" onclick="discoverAll()">Explore <i class="fa-solid fa-arrow-right"></i></button>
+			</div>		
+			</div>
 			<!-- #RESTAURANT OPTIONS -->
-			<div class="option active">
+			<div class="option" data-cuisine="Italian">
 					<img src="./Images/Italiano.jpg" alt="Pasta Bowl">
 				<div class="content">
 					<h2>Italian</h2>
 					<p>Experience the flavors of Italy with our authentic Italian cuisine.</p>
-					<button onclick="exploreCuisine('${cuisine.name}')">Explore <i class="fa-solid fa-arrow-right"></i></button>
+					<button class="explore" onclick="exploreCuisine('Italian')">Explore <i class="fa-solid fa-arrow-right"></i></button>
 				</div>
 			</div>
-			<div class="option">
+			<div class="option" data-cuisine="Sushi">
 					<img src="./Images/Sushi.jpg" alt="Sushi">
 				<div class="content">
 					<h2>Sushi</h2>
 					<p>Indulge in the art of sushi with our fresh and flavorful sushi dishes.</p>
-					<button onclick="exploreCuisine('${cuisine.name}')">Explore <i class="fa-solid fa-arrow-right"></i></button>
+					<button class="explore" onclick="exploreCuisine('Sushi')">Explore <i class="fa-solid fa-arrow-right"></i></button>
 				</div>
 			</div>
-			<div class="option">
-					<img src="./Images/Steakhouse.jpg" alt="Steakhouse">
+			<div class="option" data-cuisine="Steak">
+					<img src="./Images/Steakhouse.jpg" alt="Steak">
 				<div class="content">
-					<h2>Steakhouse</h2>
-					<p>Savor the taste of premium steaks and grilled meats at our steakhouse.</p>
-					<button onclick="exploreCuisine('${cuisine.name}')">Explore <i class="fa-solid fa-arrow-right"></i></button>
+					<h2>Steak</h2>
+					<p>Savor the taste of premium steaks and grilled meats at our steakhouses.</p>
+					<button class="explore" onclick="exploreCuisine('Steak')">Explore <i class="fa-solid fa-arrow-right"></i></button>
 				</div>
 			</div>
-			<div class="option">
+			<div class="option" data-cuisine="BBQ">
 					<img src="./Images/bbq.jpg" alt="BBQ Meat">
 				<div class="content">
 					<h2>BBQ</h2>
 					<p>Enjoy the smoky flavors of barbecue with our delicious BBQ dishes.</p>
-					<button onclick="exploreCuisine('${cuisine.name}')">Explore <i class="fa-solid fa-arrow-right"></i></button>
+					<button class="explore" onclick="exploreCuisine('BBQ')">Explore <i class="fa-solid fa-arrow-right"></i></button>
 				</div>
 			</div>
-			<div class="option">
+			<div class="option" data-cuisine="Indian">
 					<img src="./Images/Indian.jpg" alt="Rice & Curry">
 				<div class="content">
 					<h2>Indian</h2>
 					<p>Spice up your taste buds with our flavorful Indian dishes and curries.</p>
-					<button onclick="exploreCuisine('${cuisine.name}')">Explore <i class="fa-solid fa-arrow-right"></i></button>
+					<button class="explore" onclick="exploreCuisine('Indian')">Explore <i class="fa-solid fa-arrow-right"></i></button>
 				</div>
 			</div>
 			<div class="option">
@@ -191,90 +200,38 @@
 				<div class="content">
 					<h2>Pizza</h2>
 					<p>Delight in the cheesy goodness of our freshly baked pizzas and calzones.</p>
-					<button onclick="exploreCuisine('${cuisine.name}')">Explore <i class="fa-solid fa-arrow-right"></i></button>
+					<button class="explore" data-cuisine="Pizza" onclick="exploreCuisine('Pizza')">Explore <i class="fa-solid fa-arrow-right"></i></button>
 				</div>
 			</div>
 			<div class="option">
-					<img src="./Images/Burger.jpg" alt="Burgers">
+					<img src="./Images/Burgers.jpg" alt="Burgers">
 				<div class="content">
 					<h2>Burgers</h2>
-					<p>Enjoy classic American burgers and fries at our burger joint.</p>
-					<button onclick="exploreCuisine('${cuisine.name}')">Explore <i class="fa-solid fa-arrow-right"></i></button>
+					<p>Enjoy classic American burgers and fries at our burger joints.</p>
+					<button class="explore" data-cuisine="Burger" onclick="exploreCuisine('Burger')">Explore <i class="fa-solid fa-arrow-right"></i></button>
 				</div>
 			</div>
-			<div class="option">
+			<div class="option" data-cuisine="Chinese">
 					<img src="./Images/Chinese.jpg" alt="Ramen Bowl">
 				<div class="content">
 					<h2>Chinese</h2>
 					<p>Fancy some ramen or dumplings? Come experience Chinese delicacies with us.</p>
-					<button onclick="exploreCuisine('${cuisine.name}')">Explore <i class="fa-solid fa-arrow-right"></i></button>
+					<button class="explore" onclick="exploreCuisine('Chinese')">Explore <i class="fa-solid fa-arrow-right"></i></button>
 				</div>
 			</div>
-			<div class="option">
+			<div class="option" data-cuisine="Mexican">
 					<img src="./Images/Mexican.jpg" alt="Tacos">
 				<div class="content">
 					<h2>Mexican</h2>
-					<p>Indulge in some Mexican food at our Mexican Restaurants.</p>
-					<button onclick="exploreCuisine('${cuisine.name}')">Explore <i class="fa-solid fa-arrow-right"></i></button>
+					<p>Satisfy your tacos and fajita cravings with our delicious Mexican delicacies.</p>
+					<button class="explore" onclick="exploreCuisine('Mexican')">Explore <i class="fa-solid fa-arrow-right"></i></button>
 				</div>
 			</div>
 		</div>
 	</div>
 
 
-	<!-- #HOME -->
-	<div class="home">
-		<!-- #HERO -->
-		<div class="hero">
-			<div class="hero-content">
-				<h1 class="hero-title">Say Goodbye to <span>Boring Menus</span> and Hello to <span>a World Full of Flavor and Fun!</span></h1>
-				<p class="hero-text">Discover the best unique dining experiences with our delicious menu and convenient reservation system.</p>
-			</div>
-			<div class="hero-image">
-				<img src="./Images/feature.jpg" alt="AR You Hungry? - Hero Image">
-			</div>
-		</div>
-
-		<br>
-
-		<!-- # POPULAR RESTAURANT DISPLAY-->
-		<h1>Featured Restaurants</h1>
-		<div id="restaurant-options" class="restaurant_options">
-				<div class="options">
-					<div>
-					<img src="./Images/Sushi Zen.jpg" alt="First Restaurant">
-					</div>
-					<br>
-					<h3>Sushi Zen</h3>
-					<button>Take a look </button>
-				</div>
-				<div class="options">
-					<div>
-					<img src="./Images/Sizzling Grill.jpg" alt="Second Restaurant">
-					</div>
-					<br>
-					<h3>The Sizzling Grill</h3>
-					<button>Take a look </button>
-				</div>
-				<div class="options">
-					<div>
-					<img src="./Images/La Trattoria.jpg" alt="Third Restaurant">
-					</div>
-					<br>
-					<h3>La Trattoria</h3>
-					<button>Take a look </button>
-				</div>
-				<div class="options">
-					<div>
-					<img src="./Images/Italiano's Trattoria.jpg" alt="Fourth Restaurant">
-					</div>
-					<br>
-					<h3>Italiano's Trattoria</h3>
-					<button>Take a look </button>
-				</div>
-		</div>
-
-		<!-- Restaurant results will be displayed here -->
+		
 		<h1>Restaurants</h1>
 		<div id="restaurant-list" class="restaurant-list">
 			<ul>
@@ -334,11 +291,6 @@
 			  </li>
 			</ul>
 		</div>
-
-		
-
-		
-	</div>
 
 	<!-- #FOOTER -->
 	<section class="footer">

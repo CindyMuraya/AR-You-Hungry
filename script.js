@@ -76,21 +76,25 @@ options.forEach((option, index) => {
   });
 });
 
-const cuisines = [
-  { name: "Italian", image: "./Images/Italiano.jpg" },
-  { name: "Sushi", image: "images/chinese.jpg" },
-  { name: "Steakhouse", image: "images/mexican.jpg" },
-  { name: "BBQ", image: "images/indian.jpg" },
-  { name: "Indian", image: "images/japanese.jpg" },
-  { name: "Pizza", image: "images/japanese.jpg" },
-  { name: "Burger", image: "images/japanese.jpg" },
-  { name: "Chinese", image: "images/japanese.jpg" },
-  { name: "Mexican", image: "images/japanese.jpg" },
-];
+document.getElementById('discover').addEventListener('click', function() {
+  window.location.href = 'restaurants.html';
+});
+
+document.querySelectorAll('.explore').forEach(button => {
+  button.addEventListener('click', function() {
+      const cuisine = this.getAttribute('data-cuisine');
+      window.location.href = `${cuisine}.html`;
+  });
+});
+
+const cuisines = [All, Italian, Sushi, Steak, BBQ, Indian, Pizza, Burger, Chinese, Mexican];
+
+function discoverAll() {
+  window.location.href = `restaurants.html`;
+}
 
 function exploreCuisine(cuisine) {
-  // Redirect to the restaurants page with the cuisine as a query parameter
-  window.location.href = `restaurants.html?cuisine=${cuisine}`;
+  window.location.href = `restaurants.html?cuisine=${encodeURIComponent(cuisine)}`;
 }
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -127,6 +131,30 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const cuisine = urlParams.get('cuisine');
+  const response = await fetch(`${apiUrl}/restaurants/search?cuisine=${cuisine}`);
+  const restaurants = await response.json();
+  displayRestaurants(restaurants);
+});
+
+function displayRestaurants(restaurants) {
+  const restaurantsList = document.getElementById('restaurants-list');
+  restaurantsList.innerHTML = '';
+  restaurants.forEach(restaurant => {
+    const restaurantDiv = document.createElement('div');
+    restaurantDiv.className = 'restaurant';
+    restaurantDiv.innerHTML = `
+      <h3>${restaurant.name}</h3>
+      <p>Location: ${restaurant.location}</p>
+      <p>Rating: ${restaurant.rating}</p>
+    `;
+
+    restaurantsList.appendChild(restaurantDiv);
+  });
+}
 
 const apiUrl = 'http://localhost:5000';
 

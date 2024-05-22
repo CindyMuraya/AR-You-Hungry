@@ -436,49 +436,19 @@ button i{
 }
 
 /* Hero Section Styles */
-.hero{
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap-reverse;
-}
-  
-.hero-content{
-  padding-top: 20px;
-  flex: 1;
-}
-
 .hero-title{
   font-size: 36px;
+  color:maroon;
 }
   
 .hero-title span{
   font-family: 'Satisfy';
-  color: darkred;
+  color: darkmagenta;
   text-decoration: underline;
   text-underline-offset: 10px;
   text-decoration-color: gold;
 }
   
-.hero-text{
-  font-size: 20px;
-  color: #666666;
-  padding: 20px 0;
-}
-  
-.hero-image{
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  padding-top: 40px;
-}
-
-.hero button:hover{
-  background-color: bisque;
-  color: black;
-  box-shadow: 0 2px 15px coral;
-  border: 1px solid darkorange;
-}
-
 /* Popular Restaurants Styles */
 .restaurant_options{
   margin: 25px 0;
@@ -530,39 +500,40 @@ button i{
 }
 
 /* Featured Restaurants Styles */
-.restaurant-list{
+.restaurants-list{
   margin: 45px 0;
   padding: 30px 0;
   border-radius: 30px;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  columns: 2;
 }
 
-.restaurant-list ul {
+.restaurants-list ul {
   list-style-type: none;
   text-align: center;
   columns: 2;
 }
 
-.restaurant-list li {
+.restaurants-list li {
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin: 10px 0;
   padding: 20px;
 }
 
-.restaurant-list h2 {
+.restaurants-list h2 {
   margin-top: 0;
   color: #333;
 }
 
-.restaurant-list p {
+.restaurants-list p {
   margin: 5px 0;
   color: #666;
 }
 
-.restaurant-list p.rating {
+.restaurants-list p.rating {
   font-weight: bold;
   color: chocolate;
 }

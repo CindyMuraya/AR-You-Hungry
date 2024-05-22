@@ -1,21 +1,7 @@
 // Purpose: Seed the database with sample restaurant data
 const mongoose = require('mongoose');
 const Restaurant = require('./AR-You-Hungry/models/Restaurant');
-const config = require('config');
-const db = config.get('mongoURI');
-
-const connectDB = async () => {
-    try {
-        await mongoose.connect(db, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        });
-        console.log('MongoDB Connected...');
-    } catch (err) {
-        console.error(err.message);
-        process.exit(1);
-    }
-};
+const connectDB = require('./config/db');
 
 const sampleRestaurants = [
         {
@@ -83,9 +69,17 @@ const sampleRestaurants = [
             reservations: []
         },
         {
+            name: "Italiano\'s Trattoria",
+            location: "Dallas",
+            cuisine: "Italian",
+            rating: 4.5,
+            tables: 10,
+            reservations: []
+        },
+        {
             name: "The Sizzling Grill",
             location: "Texas",
-            cuisine: "Steakhouse",
+            cuisine: "Steak",
             rating: 4.7,
             tables: 14,
             reservations: []
@@ -133,7 +127,7 @@ const sampleRestaurants = [
         {
             name: "BBQ Central",
             location: "Dallas",
-            cuisine: "Barbecue",
+            cuisine: "BBQ",
             rating: 4.6,
             tables: 25,
             reservations: []
@@ -149,7 +143,7 @@ const sampleRestaurants = [
         {
             name: "The Taverna",
             location: "Miami",
-            cuisine: "Steakhouse",
+            cuisine: "Steak",
             rating: 4.5,
             tables: 15,
             reservations: []
@@ -201,12 +195,36 @@ const sampleRestaurants = [
             rating: 4.8,
             tables: 18,
             reservations: []
+        },
+        {
+            name: "La Pasta",
+            location: "San Francisco",
+            cuisine: "Italian",
+            rating: 4.6,
+            tables: 12,
+            reservations: []
+        },
+        {
+            name: "Golden Dragon",
+            location: "Los Angeles",
+            cuisine: "Chinese",
+            rating: 4.7,
+            tables: 15,
+            reservations: []
+        },
+        {
+            name: "Fiesta Mexicana",
+            location: "Dallas",
+            cuisine: "Mexican",
+            rating: 4.3,
+            tables: 12,
+            reservations: []
         }
     ];
 
 async function run() {
     try {
-        await client.connect();
+        await client.connectDB();
         console.log("Connected correctly to server");
 
         const database = client.db('ARYouHungry');

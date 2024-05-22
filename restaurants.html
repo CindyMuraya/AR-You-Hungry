@@ -2,96 +2,175 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurants</title>
-    <link rel="stylesheet" href="styles.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="title" content="AR You Hungry? - Say Goodbye to Boring Menus and Hello to a World Full of Flavor and Fun!">
+	<meta name="description" content="Discover the best dining experience with us through our convenient reservation system.">
+	<title>Ar You Hungry? | Restaurants</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="shortcut-icon" type="image/svg+xml" href="./Images/favicon.svg">
+	<link rel="shortcut icon" href="./Images/favicon.png" type="image/x-icon">
 </head>
 <body>
-    <div class="container">
-        <h1>Restaurants</h1>
-        <div id="restaurants-list">
-            <ul>
-                <li class="Italian">
-                  <h2>Italiano's Trattoria</h2>
-                  <p>Authentic Italian cuisine in a cozy atmosphere.</p>
-                  <p>Location: 123 Main Street, Cityville</p>
-                  <p class="rating">Rating: 4.5/5</p>
-                </li>
-                <li class="BBQ">
-                  <h2>Spice &amp; Smoke BBQ</h2>
-                  <p>Delicious barbecue with a variety of smoked meats and flavorful spices.</p>
-                  <p>Location: 456 Oak Avenue, Townsville</p>
-                  <p class="rating">Rating: 4.8/5</p>
-                </li>
-                <li class="Sushi">
-                  <h2>Sushi Zen</h2>
-                  <p>Exquisite sushi and Japanese cuisine served with style.</p>
-                  <p>Location: 789 Pine Street, Villagetown</p>
-                  <p class="rating">Rating: 4.7/5</p>
-                </li>
-                <li class="Italian">
-                  <h2>La Trattoria</h2>
-                  <p>Italian Cuisine</p>
-                  <p>123 Main Street, Cityville</p>
-                  <p class="rating">Rating: 4.5/5</p>
-                </li>
-                <li class="Steakhouse">
-                  <h2>The Sizzling Grill</h2>
-                  <p>American Steakhouse</p>
-                  <p>456 Oak Avenue, Townsville</p>
-                  <p class="rating">Rating: 4.8/5</p>
-                </li>
-                <li class="Sushi">
-                  <h2>Sushi Paradise</h2>
-                  <p>Japanese Sushi Bar</p>
-                  <p>789 Maple Road, Villageton</p>
-                  <p class="rating">Rating: 4.2/5</p>
-                </li>
-                <li class="Indian">
-                  <h2>Curry Kingdom</h2>
-                  <p>Indian Cuisine</p>
-                  <p>101 Cedar Street, Spicetown</p>
-                  <p class="rating">Rating: 4.7/5</p>
-                </li>
-                <li class="Pizza">
-                  <h2>Mamma Mia Pizzeria</h2>
-                  <p>Italian Pizza</p>
-                  <p>210 Elm Street, Pizzaville</p>
-                  <p class="rating">Rating: 4.6/5</p>
-                </li>
-                <li class="Burger">
-                  <h2>Burger Barn</h2>
-                  <p>American Burger Joint</p>
-                  <p>315 Walnut Avenue, Burgertown</p>
-                  <p class="rating">Rating: 4.4/5</p>
-                </li>
-              </ul>
+    <header>
+        <div class="logo">
+            <a href="./index.html" name="logo">
+                <img src="Images/logo2.svg" alt="AR You Hungry? - Logo">
+            </a>
         </div>
+    </header>
+
+    <!-- # POPULAR RESTAURANT DISPLAY-->
+	<h1>Popular Restaurants</h1>
+	<div id="restaurant-options" class="restaurant_options">
+		<div class="options">
+			<div>
+				<img src="./Images/Sushi Zen.jpg" alt="First Restaurant">
+			</div>
+			<br>
+			<a>Sushi Zen</a>
+		</div>
+		<div class="options">
+			<div>
+				<img src="./Images/Sizzling Grill.jpg" alt="Second Restaurant">
+			</div>
+			<br>
+			<a>The Sizzling Grill</a>
+		</div>
+		<div class="options">
+			<div>
+				<img src="./Images/La Trattoria.jpg" alt="Third Restaurant">
+			</div>
+			<br>
+			<a>La Trattoria</a>
+			
+		</div>
+		<div class="options">
+			<div>
+			    <img src="./Images/Italiano's Trattoria.jpg" alt="Fourth Restaurant">
+			</div>
+			<br>
+			<a>Italiano's Trattoria</a>
+		</div>
     </div>
-    <script>
-        const apiUrl = 'http://localhost:5000';
-        document.addEventListener("DOMContentLoaded", async () => {
+
+        <h1 id="cuisine-title">Restaurants</h1>
+        <div id="restaurants-list"></div>
+
+        <script>
+            // Get the cuisine from the query parameter
             const urlParams = new URLSearchParams(window.location.search);
             const cuisine = urlParams.get('cuisine');
-            const response = await fetch(`${apiUrl}/restaurants/search?cuisine=${cuisine}`);
-            const restaurants = await response.json();
-            displayRestaurants(restaurants);
-        });
+    
+            // Set the title based on the cuisine
+            const titleElement = document.getElementById('cuisine-title');
+            if (cuisine) {
+                titleElement.innerText = `${cuisine} Restaurants`;
+            } else {
+                titleElement.innerText = 'All Restaurants';
+            }
+    
+            // Example restaurants data
+            const restaurants = {
+                All: [
+                    { name: 'Italian Bistro', location: 'New York', cuisine: 'Italian', rating: 4.5, tables: 10 },
+                    { name: 'Spice &amp; Smoke BBQ', location: 'Seattle', cuisine: 'BBQ', rating: 4.3, tables: 12 },
+                    { name: 'Szechuan Delight', location: 'San Francisco', cuisine: 'Chinese', rating: 4.7, tables: 15 },
+                    { name: 'Taco Palace', location: 'Austin', cuisine: 'Mexican', rating: 4.3, tables: 12 },
+                    { name: 'Spice Haven', location: 'Chicago', cuisine: 'Indian', rating: 4.6, tables: 8 },
+                    { name: 'Sushi World', location: 'Los Angeles', cuisine: 'Sushi', rating: 4.8, tables: 20 },
+                    { name: 'Sushi Zen', location: 'New York', cuisine: 'Sushi', rating: 4.5, tables: 13 },
+                    { name: 'La Trattoria', location: 'Hollywood', cuisine: 'Italian', rating: 4.8, tables: 27 },
+                    { name: 'Italiano\'s Trattoria', location: 'Dallas', cuisine: 'Italian', rating: 4.5, tables: 10 },
+                    { name: 'The Sizzling Grill', location: 'Texas', cuisine: "Steak", rating: 4.7, tables: 14 },
+                    { name: 'Sushi Paradise', location: 'California', cuisine: 'Sushi', rating: 4.7, tables: 15 },
+                    { name: 'Curry Kingdom', location: 'New York', cuisine: 'Indian', rating: 4.8, tables: 24 },
+                    { name: 'Mamma Mia Pizzeria', location: 'Texas', cuisine: "Pizza", rating: 4.4, tables: 16 },
+                    { name: 'Burger Barn', location: 'Texas', cuisine: 'Burger', rating: 4.7, tables: 14 },
+                    { name: 'French Quarter', location: 'New Orleans', cuisine: "Pizza", rating: 4.9, tables: 18 },
+                    { name: 'BBQ Central', location: 'Dallas', cuisine: 'BBQ', rating: 4.6, tables: 25 },
+                    { name: 'Italian Delight', location: 'Portland', cuisine: 'Italian', rating: 4.4, tables: 10 },
+                    { name: 'The Taverna', location: 'Miami', cuisine: "Steak", rating: 4.5, tables: 15 },
+                    { name: 'Tapas Fiesta', location: 'San Diego', cuisine: "Mexican", rating: 4.7, tables: 12 },
+                    { name: 'Urban Burger', location: 'Nashville', cuisine: 'Burger', rating: 4.2, tables: 30 },
+                    { name: 'Pho House', location: 'Seattle', cuisine: 'Chinese', rating: 4.6, tables: 10 },
+                    { name: 'Indian Spice', location: 'Phoenix', cuisine: 'Indian', rating: 4.7, tables: 15 },
+                    { name: 'Mexican Magic', location: 'Las Vegas', cuisine: "Mexican", rating: 4.5, tables: 20 },
+                    { name: 'Korean BBQ Grill', location: 'Atlanta', cuisine: 'BBQ', rating: 4.8, tables: 18 },
+                    { name: 'La Pasta', location: 'San Francisco', cuisine: 'Italian', rating: 4.6, tables: 12 },
+                    { name: 'Golden Dragon', location: 'Los Angeles', cuisine: 'Chinese', rating: 4.7, tables: 15 },
+                    { name: 'Fiesta Mexicana', location: 'Dallas', cuisine: "Mexican", rating: 4.3, tables: 12 }
+                ],
+                Italian: [
+                    { name: 'Italian Bistro', location: 'New York', rating: 4.5, tables: 10 },
+                    { name: 'La Trattoria', location: 'Hollywood', rating: 4.8, tables: 27 },
+                    { name: 'Italiano\'s Trattoria', location: 'Dallas', rating: 4.5, tables: 10 },
+                    { name: 'Italian Delight', location: 'Portland', rating: 4.4, tables: 10 },
+                    { name: 'La Pasta', location: 'San Francisco', rating: 4.6, tables: 12 }
+                ],
+                Sushi: [
+                    { name: 'Sushi World', location: 'Los Angeles', rating: 4.8, tables: 20 },
+                    { name: 'Sushi Zen', location: 'New York', rating: 4.5, tables: 13 },
+                    { name: 'Sushi Paradise', location: 'California', rating: 4.7, tables: 15 }
+                ],
+                Steak: [
+                    { name: 'The Sizzling Grill', location: 'Texas', rating: 4.7, tables: 14 },
+                    { name: 'The Taverna', location: 'Miami', rating: 4.5, tables: 15 },
+                ],
+                BBQ: [
+                    { name: 'Spice &amp; Smoke BBQ', location: 'Seattle', rating: 4.3, tables: 12 },
+                    { name: 'BBQ Central', location: 'Dallas', rating: 4.6, tables: 25 },
+                    { name: 'Korean BBQ Grill', location: 'Atlanta', cuisine: 'BBQ', rating: 4.8, tables: 18 },
+                ],
+                Indian: [
+                    { name: 'Spice Haven', location: 'Chicago', cuisine: 'Indian', rating: 4.6, tables: 8 },
+                    { name: 'Curry Kingdom', location: 'New York', rating: 4.8, tables: 24 },
+                    { name: 'Indian Spice', location: 'Phoenix', rating: 4.7, tables: 15 }
+                ],
+                Pizza: [
+                    { name: 'Mamma Mia Pizzeria', location: 'Texas', rating: 4.4, tables: 16 },
+                    { name: 'French Quarter', location: 'New Orleans', rating: 4.9, tables: 18 }
+                ],
+                Burger: [
+                    { name: 'Burger Barn', location: 'Texas', rating: 4.7, tables: 14 },
+                    { name: 'Urban Burger', location: 'Nashville', rating: 4.2, tables: 30 }
+                ],
+                Chinese: [
+                    { name: 'Szechuan Delight', location: 'San Francisco', rating: 4.7, tables: 15 },
+                    { name: 'Pho House', location: 'Seattle', cuisine: 'Chinese', rating: 4.6, tables: 10 },
+                    { name: 'Golden Dragon', location: 'Los Angeles', rating: 4.7, tables: 15 }
+                ],
+                Mexican: [
+                    { name: 'Taco Palace', location: 'Austin', cuisine: 'Mexican', rating: 4.3, tables: 12 },
+                    { name: 'Tapas Fiesta', location: 'San Diego', rating: 4.7, tables: 12 },
+                    { name: 'Mexican Magic', location: 'Las Vegas', rating: 4.5, tables: 20 },
+                    { name: 'Fiesta Mexicana', location: 'Dallas', rating: 4.3, tables: 12 }
+                ]
+            };
+    
+            // Display the restaurants
+            const listContainer = document.getElementById('restaurants-list');
+            const cuisineRestaurants = restaurants[cuisine || 'All'];
+    
+            if (cuisineRestaurants && cuisineRestaurants.length > 0) {
+                cuisineRestaurants.forEach(restaurant => {
+                    const restaurantElement = document.createElement('div');
+                    restaurantElement.innerText = `${restaurant.name} - ${restaurant.location} - Cuisine: ${restaurant.cuisine} - Rating: ${restaurant.rating}/5`;
+                    listContainer.appendChild(restaurantElement);
+                });
+            } else {
+                listContainer.innerText = 'No restaurants available.';
+            }
+        </script>
 
-        function displayRestaurants(restaurants) {
-            const restaurantsList = document.getElementById('restaurants-list');
-            restaurantsList.innerHTML = '';
-            restaurants.forEach(restaurant => {
-                const restaurantDiv = document.createElement('div');
-                restaurantDiv.className = 'restaurant';
-                restaurantDiv.innerHTML = `
-                    <h3>${restaurant.name}</h3>
-                    <p>Location: ${restaurant.location}</p>
-                    <p>Rating: ${restaurant.rating}</p>
-                `;
-                restaurantsList.appendChild(restaurantDiv);
-            });
-        }
-    </script>
+    <!-- #FOOTER -->
+	<section class="footer">
+		<center>
+			&copy; <p> 2024 <a href="./index.html">AR You Hungry?</a> All rights reserved.</p>
+		</center>
+	</section>
+
+	<script src="./script.js"></script>
 </body>
 </html>
