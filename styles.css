@@ -456,8 +456,6 @@ button i{
   gap: 20px;
   justify-content: space-around;
   padding: 20px;
-  width: 100%;
-  max-width: 1200px;
 }
 
 .restaurant-card {
@@ -615,7 +613,7 @@ center p{
 	font-size: 25px;
   }
   .headerbar .nav{
-      margin-top: 60px;
+    margin-top: 60px;
   }        
   .headerbar .nav ul{
 	flex-direction: column;
@@ -623,7 +621,7 @@ center p{
 	text-align: center;
   }
   .headerbar .nav li{
-	width: 96vw;
+	width: 86vw;
 	margin: 10px 0;
 	padding: 15px 30px;
 	box-shadow: 0 2px 15px burlywood;
