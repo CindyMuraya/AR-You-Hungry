@@ -58,10 +58,10 @@ router.get('/search', async (req, res) => {
     try {
         let query = {};
         if (location) {
-            query.location = new RegExp(location, 'i'); // case-insensitive search
+            query.location = new RegExp(location, 'i');
         }
         if (cuisine) {
-            query.cuisine = new RegExp(cuisine, 'i'); // case-insensitive search
+            query.cuisine = new RegExp(cuisine, 'i');
         }
         const restaurants = await Restaurant.find(query);
         res.json(restaurants);
@@ -72,7 +72,7 @@ router.get('/search', async (req, res) => {
 
 module.exports = router;
 
-// Helper function to check table availability (included from previous implementation)
+// Function to check table availability
 const checkAvailability = async (restaurantId, date, time) => {
     const restaurant = await Restaurant.findById(restaurantId);
     const reservationsAtTime = restaurant.reservations.filter(reservation =>

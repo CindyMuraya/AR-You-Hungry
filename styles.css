@@ -456,6 +456,8 @@ button i{
   gap: 20px;
   justify-content: space-around;
   padding: 20px;
+  width: 100%;
+  max-width: 1200px;
 }
 
 .restaurant-card {
@@ -492,6 +494,7 @@ button i{
   padding: 10px 20px;
   font-size: 16px;
   letter-spacing: 1px;
+  margin-top: 10px;
   border: none;
   border-radius: 10px;
   background-color:darkred;
@@ -582,6 +585,10 @@ center p{
   }
   .bar{
 	display: block;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 25px;
 	cursor: pointer;
   }
   .headerbar{
@@ -607,6 +614,9 @@ center p{
 	position: absolute;
 	font-size: 25px;
   }
+  .headerbar .nav{
+      margin-top: 60px;
+  }        
   .headerbar .nav ul{
 	flex-direction: column;
 	margin-top: 10px;
@@ -629,32 +639,8 @@ center p{
   .headerbar .account ul{
 	justify-content: space-between;
   }
-  .restaurant_options{
-  background-color: blanchedalmond;
-  }
-  .options{
-	flex: 1;
-	text-align: center;
-	margin-bottom: 20px;
-  }
-  .options img{
-	width: 35vw;
-  }
-  .newsletter-title{
-	font-size: 22px;
-  }
-  .newsletter-title span{
-    font-size: 24px;
-  }
-  .newsletter-input input{
-	font-size: 11px;
-	padding: 15px;
-  width: 50vw;
-  }
-  .newsletter-input button{
-    line-height: 45px;
-    width: 80px;
-    font-size: 13px;
+  .restaurant-card{
+    flex: 1 1 calc(50% - 20px);
   }
   .footer .footer-content{
     margin: 0;
@@ -679,18 +665,8 @@ text-underline-offset: 7px;
   .hero-image img{
 	width: 70vw;
   }
-  .hero button{
-	margin-top: 10px;
-	width: 120px;
-	line-height: 30px;
-	font-size: 12px;
-	padding: 0 10px;
-  }
-  .newsletter{
-    justify-content: center;
-  }
-  .newsletter-title{
-    flex: 1;
+  .restaurant-card{
+    flex: 1 1 100%;
   }
   .footer{
     margin-bottom: 0;

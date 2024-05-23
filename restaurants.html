@@ -15,11 +15,66 @@
 <body>
     <header id="header">
         <div class="header">
-            <div class="logo">
-                <a href="./index.html" name="logo">
-                    <img src="Images/logo2.svg" alt="AR You Hungry? - Logo">
-                </a>
-            </div>
+            <div class="headerbar">
+				<div class="account">
+					<ul>
+						<a href="./index.html" name="homepage">
+							<li>
+								<i class="fa-solid fa-house-chimney"></i>
+							</li>
+						</a>
+						<a href="#">
+							<li>
+								<i class="fa-solid fa-location-dot locationicon" id="locationicon1" name="location-icon"></i>
+							</li>
+						</a>
+						<div class="location-container">
+							<div class="location" id="locationinput1">
+								<input type="text" id="location" placeholder="Enter Your Location">
+								<i class="fa fa-magnifying-glass-location locicon"></i>
+							</div>
+						</div>
+						<a href="#" name="search2">
+							<li>
+								<i class="fa-solid fa-magnifying-glass searchicon" id="searchicon1"></i>
+							</li>
+						</a>
+						<div class="search-container">
+							<div class="search" id="searchinput1">
+								<input type="search" name="" id="search" placeholder="Find a Restaurant..." onkeyup="search()">
+								<i class="fa-solid fa-magnifying-glass srchicon"></i>
+							</div>
+						</div>
+						<a href="./login.html" name="loginuser">
+							<li>
+							<i class="fa-solid fa-user" id="user-mb"></i>
+							</li>
+						</a>
+					</ul>
+				</div>
+
+				<div class="nav">
+					<ul>
+						<a href="./index.html" name="home">
+							<li>Home</li>
+						</a>
+						<a href="./restaurants.html">
+							<li>Restaurants</li>
+						</a>
+					</ul>
+				</div>
+			</div>
+
+			<div class="logo">
+				<a href="./index.html" name="logo">
+					<img src="Images/logo2.svg" alt="AR You Hungry? - Logo">
+				</a>
+			</div>
+
+			<div class="bar">
+				<i class="fa-solid fa-bars"></i>
+				<i class="fa-solid fa-xmark" id="hdcross"></i>
+			</div>
 
             <div class="nav">
                 <a href="./index.html">Home</a>
