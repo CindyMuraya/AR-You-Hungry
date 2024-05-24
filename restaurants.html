@@ -263,6 +263,15 @@
     const form = document.getElementById('reservations-form');
     const restaurantNameInput = document.getElementById('restaurantName');
 
+    function loadReservationEntries() {
+    // Log all reservation entries
+    console.log('All reservations:', reservationEntries);
+
+    // Optionally, you can perform further actions with the reservation entries
+    // For example, displaying them in a list, updating UI, etc.
+}
+
+
     function openModal(restaurantName) {
         restaurantNameInput.value = restaurantName;
         modal.style.display = 'block';
@@ -289,6 +298,7 @@
 
             if (response.ok) {
                 alert('Reservation successful');
+                loadReservationEntries();
                 closeModal();
             } else {
                 const result = await response.json();
@@ -299,6 +309,30 @@
             console.error(error);
         }
     });
+
+    // Initialize an empty array to store reservation entries
+    let reservationEntries = [];
+
+    // Function to handle reserve button click event
+    function reserveTable(restaurantName, userName, reservationDate, reservationTime, numberOfPeople) {
+        // Create a reservation object
+        const reservation = {
+            restaurantName: restaurantName,
+            userName: userName,
+            reservationDate: reservationDate,
+            reservationTime: reservationTime,
+            numberOfPeople: numberOfPeople
+        };
+
+        // Push the reservation object to the reservationEntries array
+        reservationEntries.push(reservation);
+
+        // Optionally, you can display a message or perform any other action
+        console.log('Reservation added:', reservation);
+
+        // For demonstration purposes, let's log the reservationEntries array
+        console.log('All reservations:', reservationEntries);
+    }
 
     document.getElementById('home-icon').addEventListener('click', () => {
         window.location.href = 'index.html';

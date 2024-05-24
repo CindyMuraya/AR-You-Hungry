@@ -147,10 +147,6 @@ function filterByCuisine(cuisine) {
   window.location.href = `restaurants.html?cuisine=${encodeURIComponent(cuisine)}`;
 }
 
-function discoverAll() {
-  window.location.href = '/restaurants.html';
-}
-
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
