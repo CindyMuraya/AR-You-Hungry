@@ -140,11 +140,11 @@ function closePopup() {
 }
 
 function filterByLocation(location) {
-  window.location.href = `/restaurants.html?location=${encodeURIComponent(location)}`;
+  window.location.href = `restaurants.html?location=${encodeURIComponent(location)}`;
 }
 
 function filterByCuisine(cuisine) {
-  window.location.href = `/restaurants.html?cuisine=${encodeURIComponent(cuisine)}`;
+  window.location.href = `restaurants.html?cuisine=${encodeURIComponent(cuisine)}`;
 }
 
 function discoverAll() {
