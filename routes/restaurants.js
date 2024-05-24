@@ -53,20 +53,24 @@ router.post('/:id/reservations', async (req, res) => {
 
 // @route   GET /restaurants/search
 // @desc    Search for restaurants by location and cuisine
-router.get('/search', async (req, res) => {
-    const { location, cuisine } = req.query;
+
+// Endpoint to get all available locations
+router.get('/locations', async (req, res) => {
     try {
-        let query = {};
-        if (location) {
-            query.location = new RegExp(location, 'i');
-        }
-        if (cuisine) {
-            query.cuisine = new RegExp(cuisine, 'i');
-        }
-        const restaurants = await Restaurant.find(query);
-        res.json(restaurants);
+        const locations = await Restaurant.distinct('location');
+        res.json(locations);
     } catch (err) {
-        res.status(500).send('Server Error');
+        res.status(500).json({ message: err.message });
+    }
+});
+
+// Endpoint to get all available cuisines
+router.get('/cuisines', async (req, res) => {
+    try {
+        const cuisines = await Restaurant.distinct('cuisine');
+        res.json(cuisines);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
     }
 });
 

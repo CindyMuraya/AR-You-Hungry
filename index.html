@@ -83,60 +83,19 @@
 					<a href="./restaurants.html">Restaurants</a>
 			</div>
 
-			<div class="account">
-				<ul>
-					<a href="./index.html">
-						<li>
-							<i class="fa-solid fa-house-chimney" name="account"></i>
-						</li>
-					</a>
-					<a href="#">
-						<li>
-							<i class="fa-solid fa-location-dot locationicon" id="locationicon2" name="location-icon"></i>
-						</li>
-					</a>
-					<div class="location-container">
-						<div class="location" id="locationinput2">
-								<input type="text" id="location-input" placeholder="Enter Your Location">
-								<i class="fa-solid fa-location-arrow locicon" onclick="searchRestaurants()"></i>
-						</div>
-					</div>
-					<a href="#">
-						<li>
-							<i class="fa-solid fa-magnifying-glass searchicon" id="searchicon2" name="searchicon"></i>
-						</li>
-					</a>
-					<div class="search-container">
-						<div class="search" id="searchinput2">
-							<input type="search" name="" id="searchinput" placeholder="Find a Restaurant..." onkeyup="search()">
-							<select id="cuisineOptions">
-								<option value="all">All Cuisines</option>
-								<option value="Italian">Italian</option>
-								<option value="Sushi">Sushi</option>
-								<option value="Steakhouse">Steakhouse</option>
-								<option value="BBQ">BBQ</option>
-								<option value="Indian">Indian</option>
-								<option value="Pizza">Pizza</option>
-								<option value="Burgers">Burgers</option>
-							</select>
-							<i class="fa-solid fa-magnifying-glass srchicon" onclick="searchRestaurants()"></i>
-						</div>
-					</div>
-					<div id="results"></div>
-					<div id="reservation-form" class="hidden">
-						<h2>Make a Reservation</h2>
-						<form id="reservation">
-							<input type="text" id="name" placeholder="Your Name" required>
-							<input type="date" id="date" required>
-							<input type="time" id="time" required>
-							<input type="number" id="partySize" placeholder="Party Size" required>
-							<button type="submit">Reserve</button>
-						</form>
-					</div>
-				</ul>
+			<div class="icons">
+				<img src="./Images/home.png" alt="Home" class="icon" id="home-icon">
+				<img src="./Images/location.png" alt="Location" class="icon" id="location-icon">
+				<img src="./Images/search.png" alt="Search" class="icon" id="search-icon">
 			</div>
 		</div>
 	</header>
+
+	<!-- #POPUP -->
+	<div id="popup" class="popup hidden">
+        <div class="popup-content" id="popup-content"></div>
+        <button class="close-popup" onclick="closePopup()">Close</button>
+    </div>
 
 	<!-- #SLIDER -->
 	<div class="slider">

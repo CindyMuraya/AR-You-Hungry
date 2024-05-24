@@ -90,6 +90,67 @@ function exploreCuisine(cuisine) {
   window.location.href = `restaurants.html?cuisine=${encodeURIComponent(cuisine)}`;
 }
 
+document.getElementById('home-icon').addEventListener('click', () => {
+  window.location.href = 'index.html';
+});
+
+document.getElementById('location-icon').addEventListener('click', displayLocations);
+document.getElementById('search-icon').addEventListener('click', displayCuisines);
+
+function displayLocations() {
+  fetch('/locations')
+      .then(response => response.json())
+      .then(locations => {
+          const popupContent = document.getElementById('popup-content');
+          popupContent.innerHTML = '<h3>Available Locations</h3>';
+          locations.forEach(location => {
+              const locationElement = document.createElement('div');
+              locationElement.classList.add('location');
+              locationElement.innerHTML = `
+                  <p>${location}</p>
+                  <button onclick="filterByLocation('${location}')">Explore</button>
+              `;
+              popupContent.appendChild(locationElement);
+          });
+          document.getElementById('popup').classList.remove('hidden');
+      });
+}
+
+function displayCuisines() {
+  fetch('/cuisines')
+      .then(response => response.json())
+      .then(cuisines => {
+          const popupContent = document.getElementById('popup-content');
+          popupContent.innerHTML = '<h3>Available Cuisines</h3>';
+          cuisines.forEach(cuisine => {
+              const cuisineElement = document.createElement('div');
+              cuisineElement.classList.add('cuisine');
+              cuisineElement.innerHTML = `
+                  <p>${cuisine}</p>
+                  <button onclick="filterByCuisine('${cuisine}')">Explore</button>
+              `;
+              popupContent.appendChild(cuisineElement);
+          });
+          document.getElementById('popup').classList.remove('hidden');
+      });
+}
+
+function closePopup() {
+  document.getElementById('popup').classList.add('hidden');
+}
+
+function filterByLocation(location) {
+  window.location.href = `/restaurants.html?location=${encodeURIComponent(location)}`;
+}
+
+function filterByCuisine(cuisine) {
+  window.location.href = `/restaurants.html?cuisine=${encodeURIComponent(cuisine)}`;
+}
+
+function discoverAll() {
+  window.location.href = '/restaurants.html';
+}
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -148,62 +209,6 @@ function setCacheHeadersForImages() {
 // Call the function to set caching headers
 setCacheHeadersForImages();
 
-document.addEventListener('DOMContentLoaded', function() {
-  const searchInput = document.getElementById('searchinput');
-  const filterOptions = document.getElementById('cuisineOptions');
-  const restaurantList = document.getElementById('restaurant-list').getElementsByTagName('li');
-
-  searchInput.addEventListener('keyup', filterRestaurants);
-  filterOptions.addEventListener('change', filterRestaurants);
-
-  function filterRestaurants() {
-    const searchTerm = searchInput.value.toLowerCase();
-    const selectedCuisine  = filterOptions.value;
-
-    Array.from(restaurantList).forEach(function(item) {
-      const text = item.textContent.toLowerCase();
-      const cuisine = item.dataset.cuisine === selectedCuisine || selectedCuisine === 'all';
-
-      if (text.includes(searchTerm) && cuisine) {
-        item.style.display = 'block';
-      } else {
-        item.style.display = 'none';
-      }
-    });
-  }
-});
-
-async function searchRestaurants() {
-    const location = document.getElementById('location-input').value;
-    const cuisine = document.getElementById('cuisineOptions').value;
-
-    let query = '';
-    if (location) query += `location=${location}&`;
-    if (cuisine) query += `cuisine=${cuisine}`;
-
-    const response = await fetch(`${apiUrl}/restaurants/search?${query}`);
-    const restaurants = await response.json();
-
-    displayResults(restaurants);
-}
-
-function displayResults(restaurants) {
-    const resultsDiv = document.getElementById('results');
-    resultsDiv.innerHTML = '';
-
-    restaurants.forEach(restaurant => {
-        const restaurantDiv = document.createElement('div');
-        restaurantDiv.classList.add('restaurant');
-        restaurantDiv.innerHTML = `
-            <h3>${restaurant.name}</h3>
-            <p>Location: ${restaurant.location}</p>
-            <p>Cuisine: ${restaurant.cuisine}</p>
-            <p>Rating: ${restaurant.rating}</p>
-            <button onclick="showReservationForm('${restaurant._id}')">Reserve</button>
-        `;
-        resultsDiv.appendChild(restaurantDiv);
-    });
-}
 
 function showReservationForm(restaurantId) {
     document.getElementById('reservation-form').classList.remove('hidden');
@@ -239,69 +244,4 @@ async function makeReservation(restaurantId) {
     }
 }
 
-const form = document.getElementById('location-container');
-const locationInput = document.getElementById('location-input');
-const restaurantList = document.getElementById('restaurant-list');
-const mapContainer = document.getElementById('map');
-
-let map;
-let markers = [];
-
-form.addEventListener('submit', e => {
-  e.preventDefault();
-  const location = locationInput.value;
-  if (location.trim() !== '') {
-    getRestaurants(location);
-  }
-});
-
-async function getRestaurants(location) {
-  const apiKey = 'YOUR_GOOGLE_PLACES_API_KEY';
-  const proxyUrl = 'https://cors-anywhere.herokuapp.com/'; // Proxy to bypass CORS restriction
-  const apiUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${location}&radius=1500&type=restaurant&key=${apiKey}`;
-  
-  try {
-    const response = await fetch(proxyUrl + apiUrl);
-    const data = await response.json();
-    displayRestaurants(data.results);
-    showMap(data.results, location);
-  } catch (error) {
-    console.error('Error fetching restaurant data:', error);
-  }
-}
-
-function displayRestaurants(restaurants) {
-  restaurantList.innerHTML = '';
-  restaurants.forEach(restaurant => {
-    const restaurantCard = document.createElement('div');
-    restaurantCard.classList.add('restaurant-card');
-    restaurantCard.innerHTML = `
-      <h3>${restaurant.name}</h3>
-      <p>${restaurant.vicinity}</p>
-      <p>Rating: ${restaurant.rating || 'N/A'}</p>
-    `;
-    restaurantList.appendChild(restaurantCard);
-  });
-}
-
-function showMap(restaurants, location) {
-  map = new google.maps.Map(mapContainer, {
-    center: new google.maps.LatLng(location),
-    zoom: 14
-  });
-
-  markers.forEach(marker => {
-    marker.setMap(null);
-  });
-  markers = [];
-
-  restaurants.forEach(restaurant => {
-    const marker = new google.maps.Marker({
-      position: restaurant.geometry.location,
-      map: map,
-      title: restaurant.name
-    });
-    markers.push(marker);
-  });
-}
 
