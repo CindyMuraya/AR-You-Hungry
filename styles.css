@@ -103,10 +103,6 @@ body {
   flex: 0.1;
 }
 
-.header .icons:hover{
-  color: coral;
-}
-
 .icons {
   display: flex;
   justify-content: flex-end;
@@ -116,10 +112,18 @@ body {
 }
 
 .icon {
-  width: 30px;
-  height: 30px;
-  margin-left: 10px;
+  font-size: 24px;
   cursor: pointer;
+  margin: 10px;
+  color: maroon;
+}
+
+.icon:hover{
+  color: blue;
+}
+
+#locationList, #restaurantList, #searchInput {
+  display: none;
 }
 
 ul {

@@ -90,63 +90,6 @@ function exploreCuisine(cuisine) {
   window.location.href = `restaurants.html?cuisine=${encodeURIComponent(cuisine)}`;
 }
 
-document.getElementById('home-icon').addEventListener('click', () => {
-  window.location.href = 'index.html';
-});
-
-document.getElementById('location-icon').addEventListener('click', displayLocations);
-document.getElementById('search-icon').addEventListener('click', displayCuisines);
-
-function displayLocations() {
-  fetch('/locations')
-      .then(response => response.json())
-      .then(locations => {
-          const popupContent = document.getElementById('popup-content');
-          popupContent.innerHTML = '<h3>Available Locations</h3>';
-          locations.forEach(location => {
-              const locationElement = document.createElement('div');
-              locationElement.classList.add('location');
-              locationElement.innerHTML = `
-                  <p>${location}</p>
-                  <button onclick="filterByLocation('${location}')">Explore</button>
-              `;
-              popupContent.appendChild(locationElement);
-          });
-          document.getElementById('popup').classList.remove('hidden');
-      });
-}
-
-function displayCuisines() {
-  fetch('/cuisines')
-      .then(response => response.json())
-      .then(cuisines => {
-          const popupContent = document.getElementById('popup-content');
-          popupContent.innerHTML = '<h3>Available Cuisines</h3>';
-          cuisines.forEach(cuisine => {
-              const cuisineElement = document.createElement('div');
-              cuisineElement.classList.add('cuisine');
-              cuisineElement.innerHTML = `
-                  <p>${cuisine}</p>
-                  <button onclick="filterByCuisine('${cuisine}')">Explore</button>
-              `;
-              popupContent.appendChild(cuisineElement);
-          });
-          document.getElementById('popup').classList.remove('hidden');
-      });
-}
-
-function closePopup() {
-  document.getElementById('popup').classList.add('hidden');
-}
-
-function filterByLocation(location) {
-  window.location.href = `restaurants.html?location=${encodeURIComponent(location)}`;
-}
-
-function filterByCuisine(cuisine) {
-  window.location.href = `restaurants.html?cuisine=${encodeURIComponent(cuisine)}`;
-}
-
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();

@@ -1,28 +1,32 @@
 const express = require('express');
-const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-const reservationRoutes = require('./routes/reservations');
-
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 
-// Middleware
+let reservations = []; // This array will act as our in-memory database
+
 app.use(cors());
 app.use(bodyParser.json());
-app.use('/reservations', reservationRoutes);
 
-// MongoDB connection
-mongoose.connect('mongodb+srv://cindymuraya:Nancy2k02@aryouhungry.2iezaag.mongodb.net/', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-}).then(() => {
-  console.log('Connected to MongoDB');
-}).catch(err => {
-  console.error('Failed to connect to MongoDB', err);
+// Handle reservation request
+app.post('/api/reservations', (req, res) => {
+    const reservation = req.body;
+    
+    if (!reservation.restaurantName || !reservation.userName || !reservation.reservationDate || !reservation.reservationTime || !reservation.numberOfPeople) {
+        return res.status(400).json({ message: 'All fields are required' });
+    }
+
+    reservations.push(reservation);
+    res.status(200).json({ message: 'Reservation successful' });
+});
+
+// Get all reservations (for debugging purposes)
+app.get('/api/reservations', (req, res) => {
+    res.status(200).json(reservations);
 });
 
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+    console.log(`Server is running on port ${PORT}`);
 });

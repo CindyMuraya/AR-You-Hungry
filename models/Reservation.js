@@ -17,7 +17,7 @@ const ReservationSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  numberOfPeople: {
+  partySize: {
     type: Number,
     required: true
   }

@@ -8,6 +8,7 @@
 	<meta name="description" content="Discover the best dining experience with us through our convenient reservation system.">
 	<title>Ar You Hungry? | Home</title>
 	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<link rel="shortcut-icon" type="image/svg+xml" href="./Images/favicon.svg">
 	<link rel="shortcut icon" href="./Images/favicon.png" type="image/x-icon">
@@ -84,9 +85,31 @@
 			</div>
 
 			<!-- <div class="icons">
-				<img src="./Images/home.png" alt="Home" class="icon" id="home-icon">
-				<img src="./Images/location.png" alt="Location" class="icon" id="location-icon">
-				<img src="./Images/search.png" alt="Search" class="icon" id="search-icon">
+				<i class="fa-solid fa-house-chimney icon" name="home" id="homeIcon"></i>
+				<i class="fa-solid fa-location-dot locationicon icon" id="locationicon2" name="location-icon"></i>
+				<i class="fa-solid fa-magnifying-glass searchicon icon" id="searchicon2" name="searchicon"></i>
+			</div>
+
+			<div id="locationList">
+				<h3>Select a Location</h3>
+				<select id="locationDropdown" onchange="showRestaurants()">
+					<option value="">Select Location</option>
+					<option value="New York">New York</option>
+					<option value="Texas">Texas</option>
+					<option value="Las Vegas">Las Vegas</option>
+					<option value="California">California</option>
+					<option value="Los Angeles">Los Angeles</option>
+					<option value="Hollywood">Hollywood</option>
+					<option value="Seattle">Seattle</option>
+					<option value="Chicago">Chicago</option>
+				</select>
+			</div>
+
+			<div id="searchInput">
+				<h3>Search Restaurants by Cuisine</h3>
+				<input type="text" id="searchBox" placeholder="Enter cuisine">
+				<button onclick="searchRestaurants()">Search</button>
+				<ul id="searchResults"></ul>
 			</div> -->
 		</div>
 	</header>
