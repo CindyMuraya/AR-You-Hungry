@@ -3,33 +3,33 @@ const router = express.Router();
 const Reservation = require('../models/Reservation');
 
 // Create a new reservation
-router.post('/reserve', async (req, res) => {
-  const { restaurantName, customerName, date, time, numberOfPeople } = req.body;
+router.post('/', async (req, res) => {
+  const { restaurantName, userName, reservationDate, reservationTime, numberOfPeople } = req.body;
 
-  const newReservation = new Reservation({
+  // Validate input
+  if (!restaurantName || !userName || !reservationDate || !reservationTime || !numberOfPeople) {
+    return res.status(400).json({ message: 'All fields are required' });
+  }
+
+  // Create a new reservation
+  const reservation = new Reservation({
     restaurantName,
-    customerName,
-    date,
-    time,
-    numberOfPeople
+    customerName: userName,
+    date: new Date(reservationDate),
+    time: reservationTime,
+    partySize: Number(numberOfPeople)
   });
 
-  try {
-    const savedReservation = await newReservation.save();
-    res.status(201).json(savedReservation);
-  } catch (err) {
-    res.status(400).json({ message: err.message });
-  }
-});
+  // Save the reservation
+  try{
+  await reservation.save();
 
-// Get all reservations for a restaurant
-router.get('/:restaurantName', async (req, res) => {
-  try {
-    const reservations = await Reservation.find({ restaurantName: req.params.restaurantName });
-    res.json(reservations);
-  } catch (err) {
-    res.status(400).json({ message: err.message });
+  return res.status(201).json({ message: 'Reservation successful' });
+  } catch (error) {
+  console.error('Error making reservation:', error);
+  return res.status(500).json({ message: 'Error making reservation' });
   }
-});
+}
+);
 
 module.exports = router;

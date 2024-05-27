@@ -2,7 +2,8 @@ const express = require('express');
 const connectDB = require('./config/db');
 const bodyParser = require('body-parser');
 const path = require('path');
-const reservationsRouter = require('./routes/reservations');
+const cors = require('cors');
+// const reservationsRouter = require('./routes/reservations');
 
 const app = express();
 
@@ -13,11 +14,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 connectDB();
 
 // Init Middleware
+app.use(cors());
 app.use(bodyParser.json());
 
 // Routes
-app.use('/api', reservationsRouter);
+// app.use('/api', reservationsRouter);
 app.use('/restaurants', require('./routes/restaurants'));
+app.use('/reservations', require('./routes/reservations'));
 
 const PORT = process.env.PORT || 3000;
 

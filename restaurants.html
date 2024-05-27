@@ -303,7 +303,7 @@
 
         const reservationButton = document.createElement('button');
         reservationButton.innerText = 'Reserve Table';
-        reservationButton.onclick = () => openModal('${restaurant.name}');
+        reservationButton.onclick = () => openModal(restaurant.name);
 
         restaurantCard.appendChild(restaurantImage);
         restaurantCard.appendChild(restaurantName);
@@ -323,6 +323,7 @@
     const form = document.getElementById('reservationsform');
     const restaurantNameInput = document.getElementById('restaurantName');
     const reservationIdInput = document.getElementById('reservationId');
+
 
     function loadReservationEntries() {
     // Log all reservation entries
@@ -346,12 +347,14 @@
         const formData = new FormData(form);
         const data = {
             ...Object.fromEntries(formData),
-            reservationId: reservationIdInput.value
+            reservationId: reservationIdInput.value,
+            restaurantName: restaurantNameInput.value
+
         };
 
 
         try {
-            const response = await fetch('/api/reservations', {
+            const response = await fetch(new URL('/reservations', "http://localhost:3000"), {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -363,7 +366,7 @@
                 const reservationId = await response.text(); // assuming the server returns the reservation ID
                 reservationIdInput.value
                 alert('Reservation successful');
-                loadReservationEntries();
+                // loadReservationEntries();
                 closeModal();
             } else {
                 const result = await response.json();
@@ -380,7 +383,7 @@
     }
 
     // Load reservation entries
-    loadReservationEntries();
+    // loadReservationEntries();
 
     </script>
 
