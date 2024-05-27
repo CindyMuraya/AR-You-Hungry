@@ -15,7 +15,7 @@ describe('Integration Tests', () => {
         await mongoose.disconnect();
     });
 
-    describe('POST /api/reserve', () => {
+    describe('POST /reservations', () => {
         it('should add a new reservation to the database', async () => {
             const reservationData = {
                 restaurantName: 'Test Restaurant',
@@ -26,7 +26,7 @@ describe('Integration Tests', () => {
             };
 
             await chai.request(app)
-                .post('/api/reserve')
+                .post('/reservations')
                 .send(reservationData);
 
             const reservations = await Reservation.find({});
